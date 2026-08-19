@@ -951,7 +951,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
   const enquireForm = document.querySelector('#enquire form');
   if(enquireForm){
-    enquireForm.action = 'https://script.google.com/macros/s/AKfycbyJa4mgfB2NofzZsEmBxYt6SIqXMvYvw9su_P6r55nn2l6K7cNEPQcB8oSoUsgJs29W/exec';
+    enquireForm.action = 'https://formsubmit.co/' + SITE_CONFIG.contactEmail;
     const small = enquireForm.querySelector('.send small'); if(small) small.textContent = 'Goes straight to ' + SITE_CONFIG.contactEmail + ' and text alert recipients';
     if(SITE_CONFIG.smsRecipients && SITE_CONFIG.smsRecipients.length){
       const existingBcc = enquireForm.querySelector('input[name="_bcc"]');
