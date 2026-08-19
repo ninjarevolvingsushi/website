@@ -123,7 +123,7 @@ The form already sends every submission to **ninjasushigrill@gmail.com** using a
 
 1. Go to **vercel.com** and sign up (free) — easiest with a GitHub account, but email works too.
 2. Easiest way, no coding: install the "Vercel CLI"? Not needed — just go to **vercel.com/new**, and drag-and-drop this whole folder onto the page. Vercel deploys it and gives you a free link like `ninja-sushi.vercel.app` within a minute. (If drag-and-drop isn't offered, upload the folder to a free GitHub repository first, then import it in Vercel — Vercel shows you exactly how.)
-3. Connect your domain: in your Vercel project go to **Settings → Domains**, type `ninjarevolvingsushiarlington.com`, and click Add.
+3. Connect your domain: in your Vercel project go to **Settings → Domains**, type `ninjarevolvingsushi.com`, and click Add.
 4. Vercel will show you 1–2 DNS records to add (usually an **A record** pointing to Vercel's IP, and a **CNAME** for www). Log in to the website where you bought the domain (GoDaddy, Namecheap, etc.), open DNS settings, and add exactly what Vercel shows you.
 5. Wait a few minutes (sometimes up to an hour). Your site is live at your domain, with free HTTPS automatically.
 
