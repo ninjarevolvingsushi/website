@@ -303,13 +303,9 @@ a.f-line:hover{color:var(--cream)}
 <!-- ============ HERO ============ -->
 <header class="hero" id="home">
   <div class="hero-media">
-    <!-- Fallback photo shows until your video file exists.
-         ★ ADD YOUR VIDEO: put your file at  videos/belt.mp4  — nothing else to change. -->
-    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1800&q=70" alt="Fresh sushi at Ninja Revolving Sushi" onerror="this.style.display='none'">
-    <video id="heroVideo" autoplay muted loop playsinline>
-      <source src="videos/belt.mp4" type="video/mp4">
+    <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1800&q=70" aria-label="Fresh sushi background video">
+      <source src="videos/hero.mp4" type="video/mp4">
     </video>
-    <button id="vplay" aria-label="Play video" style="display:none;position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);z-index:7;width:74px;height:74px;border-radius:50%;border:2px solid rgba(237,229,211,.85);background:rgba(19,17,8,.55);color:#EDE5D3;font-size:1.6rem;cursor:pointer;backdrop-filter:blur(4px)">▶</button>
   </div>
   <div class="hero-meta">
     <span>Arlington · TX</span>
@@ -474,58 +470,203 @@ const PLATES={
 };
 const MENU=[
  {cat:"Entrée",items:[
-   {n:"Chicken Teriyaki",d:"Grilled chicken, teriyaki glaze, steamed rice",price:"$12.95"},
-   {n:"Salmon Teriyaki",d:"Grilled salmon, teriyaki glaze, vegetables",price:"$14.95"},
-   {n:"Chicken Katsu",d:"Panko-crusted chicken, katsu sauce, rice",price:"$12.50"},
-   {n:"Tonkotsu Ramen",d:"Rich pork broth, chashu, soft egg, noodles",price:"$11.95"},
-   {n:"Beef Udon",d:"Thick udon noodles, beef, dashi broth",price:"$11.50"}]},
- {cat:"Traditional Roll",items:[
-   {n:"California Roll",d:"Crab, avocado, cucumber",plate:"red"},
-   {n:"Spicy Tuna Roll",d:"Tuna, spicy mayo, cucumber",plate:"orange"},
-   {n:"Salmon Roll",d:"Fresh salmon, sushi rice, nori",plate:"red"},
-   {n:"Philadelphia Roll",d:"Salmon, cream cheese, avocado",plate:"orange"},
-   {n:"Shrimp Tempura Roll",d:"Crispy shrimp, avocado, eel sauce",plate:"green"},
-   {n:"Eel Avocado Roll",d:"Grilled eel, avocado, eel sauce",plate:"green"}]},
- {cat:"Ninja Special Roll",items:[
-   {n:"Ninja Roll",d:"Spicy tuna, crunch, chef's secret sauce",price:"$12.95"},
-   {n:"Dragon Roll",d:"Eel and avocado over california roll",price:"$13.50"},
-   {n:"Rainbow Roll",d:"California roll topped with assorted fish",price:"$12.75"},
-   {n:"Volcano Roll",d:"Baked spicy seafood over california roll",price:"$13.95"},
-   {n:"Texas Roll",d:"Spicy crab, jalapeño, avocado",price:"$12.50"}]},
+   {n:"Tan Tan Men",price:"$6.99"},
+   {n:"Spicy Korean Ramen Soup",price:"$6.99"},
+   {n:"Bulgogi Bowl",price:"$6.99"},
+   {n:"Beef Udon",price:"$6.99"},
+   {n:"Mini Poke Bowl",price:"$7.99"},
+   {n:"Yakisoba (No Meat)",price:"$6.99"},
+   {n:"Tonkotsu Ramen",price:"$6.99"},
+   {n:"Shrimp Tempura Udon",price:"$6.99"},
+   {n:"Miso Soup",price:"$3.99"}]},
  {cat:"Appetizer",items:[
-   {n:"Edamame",d:"Steamed soybeans, sea salt",plate:"red"},
-   {n:"Gyoza",d:"Pan-seared pork dumplings, 5 pieces",plate:"orange"},
-   {n:"Miso Soup",d:"Tofu, wakame, scallion",plate:"red"},
-   {n:"Seaweed Salad",d:"Sesame-marinated wakame",plate:"red"},
-   {n:"Takoyaki",d:"Octopus fritters, 4 pieces",plate:"orange"},
-   {n:"Agedashi Tofu",d:"Crispy tofu in dashi broth",plate:"orange"}]},
- {cat:"Hand Roll",items:[
-   {n:"Spicy Tuna Hand Roll",d:"Tuna, spicy mayo, crisp nori cone",plate:"orange"},
-   {n:"Salmon Avocado Hand Roll",d:"Salmon, avocado, sushi rice",plate:"orange"},
-   {n:"California Hand Roll",d:"Crab, avocado, cucumber",plate:"red"},
-   {n:"Eel Cucumber Hand Roll",d:"Grilled eel, cucumber, eel sauce",plate:"green"}]},
- {cat:"Nigiri · 2 pcs",items:[
-   {n:"Salmon Nigiri",d:"Fresh, rich and delicious — a timeless favorite",plate:"orange"},
-   {n:"Tuna Nigiri",d:"Premium cut over seasoned rice",plate:"orange"},
-   {n:"Yellowtail Nigiri",d:"Buttery hamachi, hand-pressed",plate:"green"},
-   {n:"Ebi Shrimp Nigiri",d:"Sweet cooked shrimp",plate:"red"},
-   {n:"Tamago Nigiri",d:"Sweet japanese omelet",plate:"red"},
-   {n:"Unagi Nigiri",d:"Grilled eel, sweet glaze",plate:"green"}]},
- {cat:"Sashimi · 3 pcs",items:[
-   {n:"Salmon Sashimi",d:"Thick-cut fresh salmon",plate:"green"},
-   {n:"Tuna Sashimi",d:"Premium lean tuna",plate:"green"},
-   {n:"Yellowtail Sashimi",d:"Delicate hamachi slices",plate:"green"},
-   {n:"Octopus Sashimi",d:"Tender sliced tako",plate:"green"}]},
+   {n:"Veggie Spring Roll",price:"$1.99"},
+   {n:"Crispy Squid",price:"$2.99"},
+   {n:"Fried Shrimp Wonton",price:"$2.99"},
+   {n:"Takoyaki",price:"$3.99"},
+   {n:"Corn Kakiage",price:"$2.99"},
+   {n:"Shrimp Tempura Bun",price:"$2.99"},
+   {n:"Veggie Tempura",price:"$3.99"},
+   {n:"Chicken Gyoza",price:"$2.99"},
+   {n:"Chicken Karage",price:"$2.99"},
+   {n:"Shrimp Tempura",price:"$2.99"},
+   {n:"Soft Shell Crab",price:"$6.99"},
+   {n:"Crab Stick Tempura",price:"$1.99"},
+   {n:"Spicy Salmon Crispy Rice with Avocado",price:"$3.99"},
+   {n:"Spicy Tuna Crispy Rice with Avocado",price:"$3.99"},
+   {n:"Spicy Salmon Crispy Rice with Serrano",price:"$3.99"},
+   {n:"Spicy Tuna Crispy Rice with Serrano",price:"$3.99"}]},
+ {cat:"Cold Appetizer",items:[
+   {n:"Edamame",price:"$2.99"},
+   {n:"Tuna Sashimi",price:"$4.99"},
+   {n:"Eel Sashimi",price:"$4.99"},
+   {n:"Garlic Ponzu Sashimi",price:"$4.99"},
+   {n:"Ninja Cucumber Salad",price:"$2.99"},
+   {n:"Tuna Tataki",price:"$4.99"},
+   {n:"Salmon Sashimi",price:"$4.99"},
+   {n:"Yellowtail Sashimi",price:"$4.99"}]},
+ {cat:"Nigiri",items:[
+   {n:"Salmon",price:"$3.99"},
+   {n:"Seared Hokkido Octopus",price:"$3.99"},
+   {n:"Seared Scallop with Japanese Mayo",price:"$3.99"},
+   {n:"Squid",price:"$3.99"},
+   {n:"Umami Oil Seared Beef",price:"$3.99"},
+   {n:"Yuzu Jalapeno Tuna",price:"$3.99"},
+   {n:"Sweet Shrimp (Red Shrimp)",price:"$3.99"},
+   {n:"Tuna",price:"$3.99"},
+   {n:"Yellowtail",price:"$3.99"},
+   {n:"Octopus",price:"$3.99"},
+   {n:"Garlic Ponzu Salmon",price:"$3.99"},
+   {n:"Salmon Toro",price:"$3.99"},
+   {n:"Seared Eel with Miso Cream Cheese",price:"$3.99"},
+   {n:"Seared Salmon with Miso Cream Cheese",price:"$3.99"},
+   {n:"Crabstick",price:"$3.99"},
+   {n:"Tamago",price:"$3.99"},
+   {n:"Umami Oil Salmon",price:"$3.99"},
+   {n:"Yuzu Jalapeno Sweet Shrimp",price:"$3.99"},
+   {n:"Premium American Beef",price:"$3.99"},
+   {n:"Eel",price:"$3.99"},
+   {n:"Hokkido Scallop",price:"$3.99"},
+   {n:"Seared Beef with Yakiniku Sauce",price:"$3.99"},
+   {n:"Seared Salmon with Japanese Mayo",price:"$3.99"},
+   {n:"Shrimp",price:"$3.99"}]},
+ {cat:"Gunkan",items:[
+   {n:"Premium American Beef Gunkan",price:"$3.99"},
+   {n:"Umami Oil Hokkido Octopus Gunkan",price:"$3.99"},
+   {n:"Umami Sesame Patagonian Scallops Gunkan",price:"$3.99"},
+   {n:"Ikura (Salmon Roe) Gunkan",price:"$3.99"},
+   {n:"Bulgogi Tofu Inari Gunkan",price:"$1.99"},
+   {n:"Inari with Seaweed Salad Gunkan",price:"$1.99"},
+   {n:"Crab Meat Gunkan",price:"$3.99"},
+   {n:"Tuna Gunkan",price:"$1.99"},
+   {n:"Inari With Corn Salad Gunkan",price:"$1.99"}]},
+ {cat:"Sushi Roll",items:[
+   {n:"Sweet Heart",price:"$3.99"},
+   {n:"Sun Kiss",price:"$3.99"},
+   {n:"Scallop Crunch",price:"$3.99"},
+   {n:"Camaroni",price:"$3.99"},
+   {n:"Crispy Onion",price:"$3.99"},
+   {n:"Crunch Ninja",price:"$3.99"},
+   {n:"Dragon Roll",price:"$3.99"},
+   {n:"Crabstick Maki",price:"$2.99"},
+   {n:"Tamago Maki",price:"$2.99"},
+   {n:"Yellowtail Maki",price:"$2.99"},
+   {n:"Miami Beach",price:"$3.99"},
+   {n:"Alaskan Roll",price:"$3.99"},
+   {n:"Temptation Roll",price:"$3.99"},
+   {n:"Louisian Roll",price:"$3.99"},
+   {n:"Ninja Fire",price:"$3.99"},
+   {n:"Cucumber Maki",price:"$2.99"},
+   {n:"Tuna Maki",price:"$2.99"},
+   {n:"Tornado Roll",price:"$3.99"},
+   {n:"Mango Tango",price:"$3.99"},
+   {n:"Avocado Maki",price:"$2.99"},
+   {n:"Salmon Maki",price:"$2.99"},
+   {n:"Volcano Roll",price:"$3.99"},
+   {n:"Lion King",price:"$3.99"},
+   {n:"Philadelphia Roll",price:"$2.99"},
+   {n:"Shrimp Tempura Roll",price:"$3.99"},
+   {n:"Spicy Popcorn Shrimp Roll",price:"$3.99"},
+   {n:"Spicy Tuna Roll",price:"$2.99"},
+   {n:"Cowboy Roll",price:"$3.99"},
+   {n:"Joe Pool Lake Roll",price:"$3.99"},
+   {n:"Caterpillar Roll",price:"$3.99"},
+   {n:"Rainbow Roll",price:"$3.99"},
+   {n:"California Roll",price:"$2.99"},
+   {n:"Spider Roll",price:"$3.99"},
+   {n:"Chipotle",price:"$3.99"},
+   {n:"Sexy Veggie",price:"$3.99"}]},
+ {cat:"Hand Roll (Nori Paper)",items:[
+   {n:"Salmon Skin Hand Roll",price:"$4.99"},
+   {n:"Spicy Salmon Hand Roll",price:"$4.99"},
+   {n:"Spicy Yellowtail Hand Roll",price:"$4.99"},
+   {n:"Cucumber Hand Roll",price:"$3.99"},
+   {n:"California Hand Roll",price:"$4.99"},
+   {n:"Spicy Scallop Hand Roll",price:"$4.99"},
+   {n:"Spider Hand Roll",price:"$4.99"},
+   {n:"Shrimp Tempura Handroll",price:"$4.99"},
+   {n:"Avocado Hand Roll",price:"$3.99"},
+   {n:"Eel Hand Roll",price:"$4.99"},
+   {n:"Spicy Patagonian Scallop Hand Roll",price:"$4.99"},
+   {n:"Spicy Tuna Hand Roll",price:"$4.99"},
+   {n:"Vegetable Hand Roll",price:"$4.99"},
+   {n:"Ninja Hand Roll",price:"$4.99"}]},
+ {cat:"Hand Roll (Soy Paper)",items:[
+   {n:"Spider Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Shrimp Tempura Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Salmon Skin Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Spicy Salmon Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Spicy Yellowtail Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Cucumber Hand Roll Soy Paper",price:"$5.99"},
+   {n:"California Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Spicy Scallop Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Avocado Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Eel Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Spicy Patagonian Scallop Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Spicy Tuna Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Vegetable Hand Roll Soy Paper",price:"$5.99"},
+   {n:"Ninja Hand Roll Soy Paper",price:"$5.99"}]},
  {cat:"Dessert",items:[
-   {n:"Mochi Ice Cream",d:"Chewy rice cake, ice cream center",plate:"red"},
-   {n:"Tempura Cheesecake",d:"Fried golden, drizzled with honey",price:"$6.50"},
-   {n:"Green Tea Ice Cream",d:"Classic matcha soft serve",plate:"red"},
-   {n:"Dorayaki",d:"Pancake sandwich, sweet red bean",plate:"orange"}]},
- {cat:"Side",items:[
-   {n:"Steamed Rice",d:"Fluffy white rice",plate:"red"},
-   {n:"Sushi Rice",d:"Seasoned vinegar rice",plate:"red"},
-   {n:"House Salad",d:"Greens, ginger dressing",plate:"red"},
-   {n:"Ginger & Wasabi",d:"Extra on the side",plate:"red"}]}
+   {n:"Red Bean Daifuku",price:"$2.99"},
+   {n:"Cream Brulee",price:"$1.99"},
+   {n:"Matcha Mochi Ice Cream",price:"$2.99"},
+   {n:"Chocolate Mochi Ice Cream",price:"$2.99"},
+   {n:"Strawberry Mochi Ice Cream",price:"$2.99"},
+   {n:"Vanilla Mochi Ice Cream",price:"$2.99"},
+   {n:"Strawberry Daifuku (with Red Bean)",price:"$2.99"},
+   {n:"Matcha Daifuku (Red Bean)",price:"$2.99"},
+   {n:"Vanillia Ice Cream",price:"$1.99"},
+   {n:"Matcha Ice Cream",price:"$1.99"},
+   {n:"Taiyaki Ice Cream",price:"$4.99"},
+   {n:"Yuzu Cheese Cake",price:"$3.99"},
+   {n:"Sesame Ball",price:"$2.99"},
+   {n:"Tempura Banana",price:"$1.99"}]},
+ {cat:"Drinks",items:[
+   {n:"Pepsi",price:"$3.00"},
+   {n:"Diet Pepsi",price:"$3.00"},
+   {n:"Pepsi Zero",price:"$3.00"},
+   {n:"Dr. Pepper",price:"$3.00"},
+   {n:"Diet Dr Pepper",price:"$3.00"},
+   {n:"Pink Lemonade",price:"$3.00"},
+   {n:"Starry",price:"$3.00"},
+   {n:"Hot Green Tea",price:"$3.00"},
+   {n:"Sweet Iced Tea",price:"$3.00"},
+   {n:"Unsweet Iced Tea",price:"$3.00"},
+   {n:"Peach Oolong Tea",price:"$3.00"},
+   {n:"Jasmine Green Tea",price:"$3.00"},
+   {n:"Strawberry Ramune",price:"$3.99"},
+   {n:"Peach Ramune",price:"$3.99"},
+   {n:"Original Ramune",price:"$3.99"},
+   {n:"Lychee Ramune",price:"$3.99"},
+   {n:"Orange Ramune",price:"$3.99"},
+   {n:"Blueberry Ramune",price:"$3.99"},
+   {n:"Grape Ramune",price:"$3.99"},
+   {n:"Melon Ramune",price:"$3.99"},
+   {n:"Smart Water",price:"$3.99"},
+   {n:"Water",price:"$0.00"}]},
+ {cat:"Alcohol Drinks",items:[
+   {n:"Strawberry Soju",price:"$13.00"},
+   {n:"Original Soju",price:"$13.00"},
+   {n:"Yogurt Soju",price:"$13.00"},
+   {n:"Green Grape Soju",price:"$13.00"},
+   {n:"Green Apple Soju",price:"$13.00"},
+   {n:"Peach Soju",price:"$13.00"},
+   {n:"Lychee Hana Sake",price:"$15.00"},
+   {n:"White Peach Hana Sake",price:"$15.00"},
+   {n:"Mango Yuki Nigori Sake",price:"$15.00"},
+   {n:"Pineapple Hana Sake",price:"$15.00"},
+   {n:"Fuji Apple Hana Sake",price:"$15.00"},
+   {n:"Mio",price:"$12.00"},
+   {n:"Nigori",price:"$15.00"},
+   {n:"Peach Yuki Nigori Sake",price:"$15.00"},
+   {n:"Small Sake",price:"$6.50"},
+   {n:"Large Sake",price:"$8.50"},
+   {n:"Asahi",price:"$5.00"},
+   {n:"Kirin Ichiban",price:"$5.00"},
+   {n:"Michelob Ultra",price:"$5.00"},
+   {n:"Sapporo",price:"$5.00"},
+   {n:"Terra",price:"$5.00"},
+   {n:"Plum Wine (Choya Umeshu)",price:"$6.99"}]}
 ];
 /* ============ END OF MENU DATA ============ */
 
@@ -541,6 +682,131 @@ const PLACEHOLDERS=[
  "https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=400&q=60"
 ];
 const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const FILE_ALIASES={
+  "alaskan-roll":["alaskan-roll"],
+  "avocado-maki":["avocado-maki","avocado"],
+  "avocado-hand-roll":["avocado-hand-roll","avocado"],
+  "avocado-hand-roll-soy-paper":["avocado-hand-roll-soy-paper","avocado"],
+  "bulgogi-tofu-inari-gunkan":["bulgogi-tofu-inari-gunkan","bulgogi-inari"],
+  "california-roll":["california-roll","california"],
+  "california-hand-roll":["california-hand-roll","california"],
+  "california-hand-roll-soy-paper":["california-hand-roll-soy-paper","california"],
+  "camaroni":["camaroni"],
+  "caterpillar-roll":["caterpillar-roll","caterpillar"],
+  "chipotle":["chipotle"],
+  "cowboy-roll":["cowboy-roll","cowboy"],
+  "crab-meat-gunkan":["crab-meat-gunkan","crabmeat-gunkan"],
+  "crabstick":["crabstick","crabstick-nigiri"],
+  "crabstick-maki":["crabstick-maki","crabstick-maki"],
+  "crispy-onion":["crispy-onion"],
+  "crispy-squid":["crispy-squid","squid"],
+  "cucumber-maki":["cucumber-maki","cucumber-maki-roll"],
+  "crunch-ninja":["crunch-ninja","cunch-ninja"],
+  "dragon-roll":["dragon-roll"],
+  "eel":["eel","eel-nigiri","eel-nigiri-sushi"],
+  "eel-hand-roll":["eel-hand-roll","eel-nigiri"],
+  "eel-hand-roll-soy-paper":["eel-hand-roll-soy-paper","eel-nigiri"],
+  "inari-with-seaweed-salad-gunkan":["inari-with-seaweed-salad-gunkan","seaweed-salad-inari","seaweed-salad"],
+  "mango-tango":["mango-tango","mango-tango-roll"],
+  "matcha-daifuku-red-bean":["matcha-daifuku-red-bean","matcha-daifuku"],
+  "miami-beach":["miami-beach","miami-beach-roll"],
+  "umami-oil-hokkido-octopus-gunkan":["umami-oil-hokkido-octopus-gunkan","octopus-gunkan","octopus-nigiri"],
+  "octopus":["octopus","octopus-nigiri","octopus-nigiri-sushi"],
+  "spicy-popcorn-shrimp-roll":["spicy-popcorn-shrimp-roll","popcorn-shrimp"],
+  "premium-american-beef-gunkan":["premium-american-beef-gunkan","premium-beef-gunkan"],
+  "premium-american-beef":["premium-american-beef","premium-beef-nigiri"],
+  "rainbow-roll":["rainbow-roll"],
+  "salmon-maki":["salmon-maki","salmon-maki-roll"],
+  "salmon":["salmon","salmon-nigiri"],
+  "scallop-crunch":["scallop-crunch","scallop-crunch-roll"],
+  "umami-sesame-patagonian-scallops-gunkan":["umami-sesame-patagonian-scallops-gunkan","scallops-gunkan"],
+  "hokkido-scallop":["hokkido-scallop","scallops-nigiri","seared-scallops-nigiri"],
+  "seared-scallop-with-japanese-mayo":["seared-scallop-with-japanese-mayo","seared-scallops-nigiri"],
+  "seared-eel-with-miso-cream-cheese":["seared-eel-with-miso-cream-cheese","eel-with-miso"],
+  "sesame-ball":["sesame-ball"],
+  "sexy-veggie":["sexy-veggie","sexy-veggies-roll"],
+  "shrimp":["shrimp","shrimp-nigiri"],
+  "shrimp-tempura-roll":["shrimp-tempura-roll","shrimp-tempura"],
+  "shrimp-tempura-handroll":["shrimp-tempura-handroll","shrimp-tempura"],
+  "shrimp-tempura-hand-roll-soy-paper":["shrimp-tempura-hand-roll-soy-paper","shrimp-tempura"],
+  "spicy-tuna-roll":["spicy-tuna-roll"],
+  "spider-roll":["spider-roll","spider"],
+  "spider-hand-roll":["spider-hand-roll","spider"],
+  "spider-hand-roll-soy-paper":["spider-hand-roll-soy-paper","spider"],
+  "sun-kiss":["sun-kiss"],
+  "sweet-heart":["sweet-heart"],
+  "sweet-shrimp-red-shrimp":["sweet-shrimp-red-shrimp","sweet-shrimp-nigiri"],
+  "yuzu-jalapeno-sweet-shrimp":["yuzu-jalapeno-sweet-shrimp","sweet-shrimp-with-yuzu"],
+  "tamago":["tamago","tamago"],
+  "tamago-maki":["tamago-maki","tamago-maki"],
+  "tornado-roll":["tornado-roll"],
+  "salmon-toro":["salmon-toro","toro-nigiri"],
+  "tuna-gunkan":["tuna-gunkan","tuna-inari"],
+  "tuna-maki":["tuna-maki","tuna-maki"],
+  "tuna":["tuna","tuna-nigiri"],
+  "yuzu-jalapeno-tuna":["yuzu-jalapeno-tuna","tuna-with-yuzu"],
+  "umami-oil-seared-beef":["umami-oil-seared-beef","umami-oil-beef"],
+  "umami-oil-salmon":["umami-oil-salmon","umami-oil-slamon","umami-salmon"],
+  "volcano-roll":["volcano-roll"],
+  "seared-beef-with-yakiniku-sauce":["seared-beef-with-yakiniku-sauce","yakiniku-beef"],
+  "yellowtail":["yellowtail"],
+  "yuzu-cheese-cake":["yuzu-cheese-cake","yuzu-chessecake"],
+  "red-bean-daifuku":["red-bean-daifuku","daifuku"],
+  "matcha-daifuku-red-bean":["matcha-daifuku-red-bean","matcha-daifuku"],
+  "joe-pool-lake-roll":["joe-pool-lake-roll","lake-joe-pool-roll"],
+  "louisian-roll":["louisian-roll","louisiana-roll"],
+  "lion-king":["lion-king","lion-king-roll"],
+  "smoked-salmon":["smoked-salmon"],
+  "ninja-cucumber-salad":["ninja-cucumber-salad","cucumber-salad"],
+  "salmon-sashimi":["salmon-sashimi"],
+  "tuna-sashimi":["tuna-sashimi"],
+  "tuna-tataki":["tuna-tataki"],
+  "ikura-salmon-roe-gunkan":["ikura-salmon-roe-gunkan","ikura-gunkan"],
+  "inari-with-corn-salad-gunkan":["inari-with-corn-salad-gunkan","corn-inari"],
+  "cucumber-hand-roll":["cucumber-hand-roll","cucumber-maki"],
+  "cucumber-hand-roll-soy-paper":["cucumber-hand-roll-soy-paper","cucumber-maki"],
+  "salmon-skin-hand-roll":["salmon-skin-hand-roll"],
+  "salmon-skin-hand-roll-soy-paper":["salmon-skin-hand-roll-soy-paper"],
+  "spicy-salmon-hand-roll":["spicy-salmon-hand-roll"],
+  "spicy-salmon-hand-roll-soy-paper":["spicy-salmon-hand-roll-soy-paper"],
+  "spicy-scallop-hand-roll":["spicy-scallop-hand-roll"],
+  "spicy-scallop-hand-roll-soy-paper":["spicy-scallop-hand-roll-soy-paper"],
+  "spicy-tuna-hand-roll":["spicy-tuna-hand-roll"],
+  "spicy-tuna-hand-roll-soy-paper":["spicy-tuna-hand-roll-soy-paper"],
+  "spicy-patagonian-scallop-hand-roll":["spicy-patagonian-scallop-hand-roll"],
+  "spicy-patagonian-scallop-hand-roll-soy-paper":["spicy-patagonian-scallop-hand-roll-soy-paper"],
+  "vegetable-hand-roll":["vegetable-hand-roll"],
+  "vegetable-hand-roll-soy-paper":["vegetable-hand-roll-soy-paper"],
+  "ninja-hand-roll":["ninja-hand-roll"],
+  "ninja-hand-roll-soy-paper":["ninja-hand-roll-soy-paper"],
+  "shrimptempura":["shrimp-tempura"]
+};
+const imageCandidates=name=>{
+  const base=slug(name);
+  const aliases=[base,...(FILE_ALIASES[base]||[]),...(FILE_ALIASES[base]||[]).map(v=>slug(v))];
+  const unique=[];
+  const seen=new Set();
+  for(const alias of aliases){
+    if(!alias || seen.has(alias)) continue;
+    seen.add(alias);
+    unique.push(alias);
+  }
+  const dirs=["images/menu","images/menu-cards"];
+  const exts=["png","jpg","jpeg"];
+  const out=[];
+  for(const alias of unique){
+    for(const dir of dirs){
+      for(const ext of exts){
+        const src=`${dir}/${alias}.${ext}`;
+        if(!seen.has(src)){
+          seen.add(src);
+          out.push(src);
+        }
+      }
+    }
+  }
+  return out.length ? out : [`images/menu/${base}.jpg`];
+};
 /* small legend built from PLATES automatically */
 document.getElementById('plegend').innerHTML=
   '<b>Belt plates</b>'+
@@ -557,18 +823,17 @@ MENU.forEach((row,idx)=>{
       const price=kitchen?it.price:PLATES[it.plate].price;
       const pc=kitchen?'':`--pc:${PLATES[it.plate].color}`;
       const fallback=PLACEHOLDERS[(pi++)%PLACEHOLDERS.length];
+      const candidates=imageCandidates(it.n);
       plates+=`<div class="slot">
         <div class="plate ${kitchen?'kitchen':''}" style="${pc}">
           <div class="well"><div class="dish">
-            <img src="images/menu/${slug(it.n)}.jpg" alt="${it.n}" loading="lazy"
-                 onerror="this.onerror=function(){this.style.display='none'};this.src='${fallback}'">
+            <img src="${candidates[0]}" alt="${it.n}" loading="lazy"
+                 data-candidates="${candidates.join('|')}"
+                 data-fallback="${fallback}">
           </div></div>
           <div class="dome"></div>
         </div>
-
-        
-
-        <div class="pinfo"><b>${it.n}</b><span class="pr">${price}</span><span class="desc">${it.d}</span></div>
+        <div class="pinfo"><b>${it.n}</b><span class="pr">${price}</span></div>
       </div>`;
     });
   }
@@ -582,6 +847,18 @@ MENU.forEach((row,idx)=>{
 });
 rowsEl.innerHTML=html;
 
+/* image fallback: walk the candidate list, then the placeholder */
+rowsEl.querySelectorAll('.dish img').forEach(img=>{
+  const list=(img.dataset.candidates||'').split('|').filter(Boolean);
+  let i=0, done=false;
+  img.addEventListener('error',()=>{
+    if(done) return;
+    i++;
+    if(i < list.length){ img.src=list[i]; }
+    else { done=true; img.src=img.dataset.fallback; }
+  });
+});
+
 /* nav background on scroll */
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
@@ -592,25 +869,7 @@ function closeSheet(){document.getElementById('sheet').classList.remove('open')}
 /* close dropdown on outside click */
 addEventListener('click',e=>{const dd=document.getElementById('dd');if(!dd.contains(e.target))dd.classList.remove('open')});
 
-/* hero video: hide the element if the file doesn't exist yet;
-   hide the placeholder chip once the real video is playing */
-const hv=document.getElementById('heroVideo');
-hv.addEventListener('error',()=>hv.style.display='none',true);
-hv.querySelector('source').addEventListener('error',()=>hv.style.display='none');
-hv.addEventListener('playing',()=>{
-  const c=document.getElementById('videoChip'); if(c)c.style.display='none';
-  const ph=hv.parentNode.querySelector('img'); if(ph)ph.style.display='none';
-});
-/* some browsers block autoplay until the user touches the page — retry then */
-const vbtn=document.getElementById('vplay');
-const kick=()=>{ hv.play().then(()=>{if(vbtn)vbtn.style.display='none';}).catch(()=>{}); };
-kick();
-['pointerdown','touchstart','keydown','scroll'].forEach(ev=>
-  addEventListener(ev,kick,{once:true,passive:true}));
-/* if still not playing after 1.5s, show a Play button */
-setTimeout(()=>{ if(hv.paused && hv.style.display!=='none' && vbtn){ vbtn.style.display='block';
-  vbtn.onclick=e=>{e.stopPropagation(); kick();}; } },1500);
-hv.addEventListener('playing',()=>{ if(vbtn)vbtn.style.display='none'; });
+/* YouTube video embedded - no additional handling needed */
 
 
 /* ---- belt engine: auto-roll left→right, drag by hand, ‹ › buttons ---- */
