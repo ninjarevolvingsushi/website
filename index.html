@@ -372,6 +372,7 @@ a.f-line:hover{color:var(--cream)}
       <input type="hidden" name="_subject" value="New message — Ninja Revolving Sushi website">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_cc" value="+16824068261@tmomail.net">
       <div class="field"><label for="f-name">Full Name *</label><input id="f-name" name="Full Name" type="text" required></div>
       <div class="field"><label for="f-email">Email Address *</label><input id="f-email" name="Email" type="email" required></div>
       <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="Phone" type="tel"></div>
@@ -951,10 +952,15 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const enquireForm = document.querySelector('#enquire form');
   if(enquireForm){
     enquireForm.action = 'https://formsubmit.co/' + SITE_CONFIG.contactEmail;
-    const small = enquireForm.querySelector('.send small'); if(small) small.textContent = 'Goes straight to ' + SITE_CONFIG.contactEmail;
+    const small = enquireForm.querySelector('.send small'); if(small) small.textContent = 'Goes straight to ' + SITE_CONFIG.contactEmail + ' and text alert recipients';
     if(SITE_CONFIG.smsRecipients && SITE_CONFIG.smsRecipients.length){
-      const h = document.createElement('input'); h.type='hidden'; h.name='SMS Recipients'; h.value=SITE_CONFIG.smsRecipients.join(', ');
-      enquireForm.appendChild(h);
+      const existingCc = enquireForm.querySelector('input[name="_cc"]');
+      if(existingCc){
+        existingCc.value = SITE_CONFIG.smsRecipients.join(', ');
+      } else {
+        const h = document.createElement('input'); h.type='hidden'; h.name='_cc'; h.value=SITE_CONFIG.smsRecipients.join(', ');
+        enquireForm.appendChild(h);
+      }
     }
   }
 
