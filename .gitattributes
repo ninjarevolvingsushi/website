@@ -1,1 +1,2 @@
-*.mp4 filter=lfs diff=lfs merge=lfs -text
+# Keep MP4 assets as normal files for static hosting.
+# LFS pointer files cause blank video playback on Vercel and similar hosts.
