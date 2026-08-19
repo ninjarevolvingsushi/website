@@ -14,7 +14,6 @@ That's it — the website finds it automatically, plays it muted on loop behind 
 
 Tip: if your video file is huge, compress it first at https://www.freeconvert.com/video-compressor (choose MP4, target ~20 MB).
 
----
 
 ## 2. Add your menu photos
 
@@ -69,7 +68,6 @@ Put your food photos inside the **images/menu** folder. Square photos look best 
 
 Any photo you haven't added yet shows a placeholder automatically — nothing breaks.
 
----
 
 ## 3. Edit menu items, descriptions, prices, and plate colors
 
@@ -100,12 +98,7 @@ Then use `plate:"blue"` on any item. To change the existing prices ($1.99/$2.99/
 {n:"Ninja Roll", d:"Spicy tuna, crunch, chef's secret sauce", price:"$12.95"},
 ```
 
-- `n:` is the item name (also decides the photo file name — see rule above)
-- `d:` is the short description of what it consists of
-- To add a new item, copy a line and change it. To remove one, delete the line. Keep the commas between items.
-- To change the starting prices ($1.99 / $2.99 / $3.99), search for `PLATE_PRICE` and edit the numbers there, and also update them in the price sign section (search for `pricesign`).
 
----
 
 ## 4. Add your real Uber Eats / DoorDash / Grubhub links
 
@@ -113,21 +106,18 @@ The buttons now show the real Uber Eats, DoorDash, and Grubhub logos (they're bu
 
 Already done — the Uber Eats, DoorDash, and Grubhub buttons point to your real Ninja Sushi & Grill store pages in all 3 places (top menu dropdown, mobile menu, and the Order section). These links automatically open the app on phones, or the App Store / Google Play if the app isn't installed. If a store URL ever changes, search for "ubereats.com", "doordash.com", or "grubhub.com" in index.html and paste the new link.
 
----
 
 ## 5. Instagram and Facebook
 
 Already done — the footer icons link to your real Instagram (@ninjasushigrill) and Facebook pages. To change them later, search for "instagram.com" or "facebook.com" in index.html.
 
----
 
 ## 6. The enquiry form (hiring, events, questions)
 
-The form already sends every submission to **ninjarevolvingsushi@gmail.com** using a free service called FormSubmit.
+The form already sends every submission to **ninjasushigrill@gmail.com** using a free service called FormSubmit.
 
 **One-time setup:** the first time someone submits the form on your live website, FormSubmit sends ONE confirmation email to your Gmail. Open it and click "Activate". After that, every enquiry arrives in your inbox automatically, formatted as a table. No account or password needed.
 
----
 
 ## 7. Put it live on Vercel with your domain
 
@@ -139,12 +129,39 @@ The form already sends every submission to **ninjarevolvingsushi@gmail.com** usi
 
 **To update the site later** (new menu, new photos, new video): change the files in this folder and deploy again the same way — drag-and-drop the folder at vercel.com/new, or push to GitHub if you set that up. Takes under a minute.
 
----
 
 ## Quick reference — what's where in index.html
 
-- `MENU DATA` — all menu items, descriptions, prices, plate colors
-- `★ EDIT` — every place with a link you should replace (delivery apps, socials)
-- `pricesign` — the red/orange/green price sign
-- Phone number appears as `+16822524367` — search for it if it ever changes
-- Hours are in the footer — search for `Hours`
+## 8. Menu board (small cards on each disc)
+
+You can place a small menu-card image that "sticks" to each disc (the little board that sits on the conveyor). Put images in `images/menu-cards/` named to match the menu slug (same slug used for `images/menu/<item>.jpg`). Example:
+
+- `images/menu-cards/california-roll.png`
+- `images/menu-cards/salmon-nigiri.png`
+
+If a `menu-cards/<slug>.png` file exists the site shows it above the plate and it moves with the disc. If the file is missing the slot simply shows the plate photo — nothing breaks. This makes replacing or updating menu boards later as simple as dropping a PNG into `images/menu-cards/`.
+
+
+
+---
+
+## Add the Ninja logo onto your belt video
+
+1. Put your source logo image (the one you attached) into `images/` and name it `logo.png` (or any name you like).
+2. Run the helper to make the black background transparent (requires Python Pillow):
+
+```
+python tools/make_logo_transparent.py images/logo.png images/logo_alpha.png 30
+```
+
+3. Use `ffmpeg` to overlay the transparent logo twice (top-left and bottom-center) onto `videos/belt.mp4`:
+
+```
+tools\overlay_logo.bat videos\belt.mp4 images\logo_alpha.png output\belt_with_logo.mp4
+```
+
+Notes:
+- `make_logo_transparent.py` turns near-black pixels (threshold 30) fully transparent — adjust the threshold if the logo has dark non-background details.
+- `overlay_logo.bat` requires `ffmpeg` to be installed and on your PATH.
+- The scripts save output to `output/belt_with_logo.mp4` by default. Change the paths if you prefer.
+
