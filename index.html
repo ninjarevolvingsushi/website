@@ -368,11 +368,11 @@ a.f-line:hover{color:var(--cream)}
       <h2 class="h-big">How can<br><i>we help?</i></h2>
       <p>Looking for opportunities, placing a large order, sharing feedback, or anything else — fill out the form and it goes straight to our inbox. We'll be in touch within 24 hours.</p>
     </div>
-    <form class="reveal" action="https://formsubmit.co/ask.mohank@gmail.com" method="POST">
+    <form class="reveal" action="https://formsubmit.co/ninjasushigrill@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New message — Ninja Revolving Sushi website">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_cc" value="+16824068261@tmomail.net">
+      <input type="hidden" name="_bcc" value="6822524367@tmomail.net">
       <div class="field"><label for="f-name">Full Name *</label><input id="f-name" name="Full Name" type="text" required></div>
       <div class="field"><label for="f-email">Email Address *</label><input id="f-email" name="Email" type="email" required></div>
       <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="Phone" type="tel"></div>
@@ -931,13 +931,13 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 (() => {
   const SITE_CONFIG = {
     googleHiringForm: 'https://forms.gle/pcqr7Awohynffkcb6', // your Google Form URL
-    contactEmail: 'ask.mohank@gmail.com', // temporary test inbox for verifying form submissions
+    contactEmail: 'ninjasushigrill@gmail.com',
     deliveryLinks: {
       uber: '#',
       doordash: '#',
       grubhub: '#'
     },
-    smsRecipients: ['+16824068261@tmomail.net'] // Mint Mobile email-to-SMS gateway
+    smsRecipients: ['6822524367@tmomail.net'] // Mint Mobile email-to-SMS gateway (10-digit number, no +1)
   };
 
   const setIf = (id, url) => { const el = document.getElementById(id); if(el && url) el.href = url; };
@@ -954,11 +954,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     enquireForm.action = 'https://formsubmit.co/' + SITE_CONFIG.contactEmail;
     const small = enquireForm.querySelector('.send small'); if(small) small.textContent = 'Goes straight to ' + SITE_CONFIG.contactEmail + ' and text alert recipients';
     if(SITE_CONFIG.smsRecipients && SITE_CONFIG.smsRecipients.length){
-      const existingCc = enquireForm.querySelector('input[name="_cc"]');
-      if(existingCc){
-        existingCc.value = SITE_CONFIG.smsRecipients.join(', ');
+      const existingBcc = enquireForm.querySelector('input[name="_bcc"]');
+      if(existingBcc){
+        existingBcc.value = SITE_CONFIG.smsRecipients.join(', ');
       } else {
-        const h = document.createElement('input'); h.type='hidden'; h.name='_cc'; h.value=SITE_CONFIG.smsRecipients.join(', ');
+        const h = document.createElement('input'); h.type='hidden'; h.name='_bcc'; h.value=SITE_CONFIG.smsRecipients.join(', ');
         enquireForm.appendChild(h);
       }
     }
