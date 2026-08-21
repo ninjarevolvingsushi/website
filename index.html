@@ -86,7 +86,7 @@ nav.scrolled{background:rgba(19,17,8,.92);backdrop-filter:blur(12px);border-colo
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
 .hero-media{position:absolute;inset:0;background:#000}
 .hero-media > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
-.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+.hero-media video,.hero-media iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;pointer-events:none;border:0;transform:scale(1.12)}
 .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(19,17,8,.42),rgba(19,17,8,.22) 50%,rgba(19,17,8,.9))}
 .hero-meta{position:relative;z-index:5;display:flex;justify-content:space-between;max-width:1400px;width:100%;margin:0 auto;padding:8.5rem 1.6rem 0;font-size:.66rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim)}
 .hero-meta span:nth-child(2){display:none}
@@ -258,14 +258,6 @@ a.f-line:hover{color:var(--cream)}
     <a href="#home">Home</a>
     <a href="#menu">Menu</a>
     <a href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener">Pickup</a>
-    <div class="dd" id="dd">
-      <button aria-expanded="false" aria-haspopup="true" onclick="document.getElementById('dd').classList.toggle('open')">Delivery ▾</button>
-      <div class="dd-panel">
-                <a id="uber-link" class="dl-btn b-uber" aria-label="Uber Eats" href="#" target="_blank" rel="noopener"><span class="go">↗</span></a>
-        <a id="doordash-link" class="dl-btn b-door" aria-label="DoorDash" href="#" target="_blank" rel="noopener"><span class="go">↗</span></a>
-        <a id="grubhub-link" class="dl-btn b-grub" aria-label="Grubhub" href="#" target="_blank" rel="noopener"><span class="go">↗</span></a>
-      </div>
-    </div>
     <a id="hiring-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdBSmQZHO0UKVdycIAMUJrHxrnDDKwsiRCtOejmLga9JB3S3g/viewform" target="_blank" rel="noopener" title="Careers — Join the Ninja team">Careers</a>
     <a href="#contact">Contact</a>
     <a class="book-btn" href="tel:+16822524367">Book a Table</a>
@@ -303,9 +295,15 @@ a.f-line:hover{color:var(--cream)}
 <!-- ============ HERO ============ -->
 <header class="hero" id="home">
   <div class="hero-media">
-    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1800&q=70" aria-label="Fresh sushi background video" muted playsinline webkit-playsinline>
-      <source src="videos/hero-optimized.mp4" type="video/mp4">
-      <source src="/videos/hero-optimized.mp4" type="video/mp4">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-label="Fresh sushi background video"
+    >
+      <source src="videos/input.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-meta">
@@ -320,7 +318,7 @@ a.f-line:hover{color:var(--cream)}
   </div>
   <div class="hero-ctas">
     <a class="hbtn solid" href="tel:+16822524367">Book a Table</a>
-    <a class="hbtn line" href="#order">Delivery</a>
+    <a class="hbtn line" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener">Pickup Order</a>
   </div>
 </header>
 
@@ -345,13 +343,14 @@ a.f-line:hover{color:var(--cream)}
       <div class="call-rows">
           <div class="call-combined">
             <a class="crow reveal" href="tel:+16822524367"><span><b>Book a Table</b><span>Tap to call · (682) 252-4367</span></span><span>→</span></a>
-            <a class="crow reveal" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener"><span><b>Pickup Website</b><span>Order online from our pickup site</span></span><span>→</span></a>
+            <a class="crow reveal" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener"><span><b>Pickup</b><span>Order online from our pickup site</span></span><span>→</span></a>
+            <a class="crow reveal" href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ?d=2026-08-21&diningMode=DELIVERY&et=780&mod=quickView&modctx=%257B%2522storeUuid%2522%253A%2522a6aec8db-bd54-4a0f-8f0e-832880a138a9%2522%252C%2522sectionUuid%2522%253A%2522267d7710-0cd8-492a-92aa-4b98217c475d%2522%252C%2522subsectionUuid%2522%253A%25220379a62a-1156-4ddb-a09a-7e1dc45d5dfb%2522%252C%2522itemUuid%2522%253A%2522cd89c549-1d57-4278-9074-c40d2755be12%2522%252C%2522showSeeDetailsCTA%2522%253Atrue%257D&ps=1&sc=SEARCH_SUGGESTION&st=750" target="_blank" rel="noopener"><span><b>Delivery</b><span>Order from Uber Eats</span></span><span>→</span></a>
           </div>
       </div>
     </div>
     <div class="order-apps reveal">
       <h4>Delivery</h4>
-            <a class="dl-btn b-uber" aria-label="Order on Uber Eats" href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ?d=2026-08-21&diningMode=DELIVERY&et=780&mod=quickView&modctx=%257B%2522storeUuid%2522%253A%2522a6aec8db-bd54-4a0f-8f0e-832880a138a9%2522%252C%2522sectionUuid%2522%253A%2522267d7710-0cd8-492a-92aa-4b98217c475d%2522%252C%2522subsectionUuid%2522%253A%25220379a62a-1156-4ddb-a09a-7e1dc45d5dfb%2522%252C%2522itemUuid%2522%253A%2522cd89c549-1d57-4278-9074-c40d2755be12%2522%252C%2522showSeeDetailsCTA%2522%253Atrue%257D&ps=1&sc=SEARCH_SUGGESTION&st=750" target="_blank" rel="noopener"><span class="go">↗</span></a>
+      <a class="dl-btn b-uber" aria-label="Order on Uber Eats" href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ?d=2026-08-21&diningMode=DELIVERY&et=780&mod=quickView&modctx=%257B%2522storeUuid%2522%253A%2522a6aec8db-bd54-4a0f-8f0e-832880a138a9%2522%252C%2522sectionUuid%2522%253A%2522267d7710-0cd8-492a-92aa-4b98217c475d%2522%252C%2522subsectionUuid%2522%253A%25220379a62a-1156-4ddb-a09a-7e1dc45d5dfb%2522%252C%2522itemUuid%2522%253A%2522cd89c549-1d57-4278-9074-c40d2755be12%2522%252C%2522showSeeDetailsCTA%2522%253Atrue%257D&ps=1&sc=SEARCH_SUGGESTION&st=750" target="_blank" rel="noopener"><span class="go">↗</span></a>
       <a class="dl-btn b-door" aria-label="Order on DoorDash" href="https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/?event_type=autocomplete&pickup=false" target="_blank" rel="noopener"><span class="go">↗</span></a>
       <a class="dl-btn b-grub" aria-label="Order on Grubhub" href="https://www.grubhub.com/restaurant/ninja-sushi-and-grill-4629-s-cooper-st-ste-125-arlington/2350892" target="_blank" rel="noopener"><span class="go">↗</span></a>
       <div class="order-note">No app installed? The link automatically opens the App Store or Google Play.</div>
@@ -460,8 +459,8 @@ a.f-line:hover{color:var(--cream)}
 
 <!-- sticky mobile bar -->
 <div class="sticky-order">
-  <a class="call" href="tel:+16822524367">Call / Book</a>
-  <a class="ord" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener">Pickup</a>
+  <a class="call" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener">Pickup</a>
+  <a class="ord" href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ?d=2026-08-21&diningMode=DELIVERY&et=780&mod=quickView&modctx=%257B%2522storeUuid%2522%253A%2522a6aec8db-bd54-4a0f-8f0e-832880a138a9%2522%252C%2522sectionUuid%2522%253A%2522267d7710-0cd8-492a-92aa-4b98217c475d%2522%252C%2522subsectionUuid%2522%253A%25220379a62a-1156-4ddb-a09a-7e1dc45d5dfb%2522%252C%2522itemUuid%2522%253A%2522cd89c549-1d57-4278-9074-c40d2755be12%2522%252C%2522showSeeDetailsCTA%2522%253Atrue%257D&ps=1&sc=SEARCH_SUGGESTION&st=750" target="_blank" rel="noopener">Delivery</a>
 </div>
 <script>
 /* ============================================================
