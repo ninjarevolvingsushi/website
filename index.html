@@ -329,11 +329,10 @@ a.f-line:hover{color:var(--cream)}
   <div class="menu-head reveal">
     <span class="eyebrow">The Menu</span>
     <h2 class="h-big"><span class="scr">always</span>Rolling.</h2>
-    <p>Grab plates straight off the belt — the plate color is the price. Specialty rolls and kitchen items are priced individually. Slide any row by hand, or use the ‹ › arrows.</p>
-    <div class="plegend" id="plegend"><b>Belt plates</b></div>
+    <p>Dining prices: red plates $1.99, orange plates $2.99, and green plates $3.99. Specialty rolls and kitchen items are priced individually. Slide any row by hand, or use the ‹ › arrows.</p>
   </div>
   <div id="menuRows"></div>
-  <div class="menu-note">Prices shown per plate · specialty &amp; kitchen items priced individually</div>
+  <div class="menu-note">Dining prices · specialty &amp; kitchen items priced individually</div>
 </section>
 
 <!-- ============ ORDER ============ -->
@@ -834,11 +833,6 @@ const imageCandidates=name=>{
   }
   return out.length ? out : [`images/menu/${base}.jpg`];
 };
-/* small legend built from PLATES automatically */
-document.getElementById('plegend').innerHTML=
-  '<b>Belt plates</b>'+
-  Object.values(PLATES).map(p=>`<span><span class="pd" style="background:${p.color}"></span>${p.price}</span>`).join('')+
-  '<em>· gold plates priced per item</em>';
 let pi=0;
 const rowsEl=document.getElementById('menuRows');
 let html='';
