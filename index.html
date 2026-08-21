@@ -266,7 +266,7 @@ a.f-line:hover{color:var(--cream)}
         <a id="grubhub-link" class="dl-btn b-grub" aria-label="Grubhub" href="#" target="_blank" rel="noopener"><span class="go">↗</span></a>
       </div>
     </div>
-    <a id="hiring-link" href="https://forms.gle/pcqr7Awohynffkcb6" target="_blank" rel="noopener" title="Careers — Apply on Google Form">Careers</a>
+    <a id="hiring-link" href="#careers" title="Careers — Join the Ninja team">Careers</a>
     <a href="#contact">Contact</a>
     <a class="book-btn" href="tel:+16822524367">Book a Table</a>
   </div>
@@ -291,7 +291,7 @@ a.f-line:hover{color:var(--cream)}
     <a class="dl-btn b-door" aria-label="Order on DoorDash" href="https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/?event_type=autocomplete&pickup=false" target="_blank" rel="noopener"><span class="go">↗</span></a>
     <a class="dl-btn b-grub" aria-label="Order on Grubhub" href="https://www.grubhub.com/restaurant/ninja-sushi-and-grill-4629-s-cooper-st-ste-125-arlington/2350892" target="_blank" rel="noopener"><span class="go">↗</span></a>
   </div>
-  <a class="sheet-item" id="hiring-link-sheet" href="https://forms.gle/pcqr7Awohynffkcb6" target="_blank" rel="noopener" onclick="closeSheet();" title="Careers — Apply on Google Form"><span class="num">06</span><span class="lbl">Careers</span></a>
+  <a class="sheet-item" id="hiring-link-sheet" href="#careers" onclick="closeSheet();" title="Careers — Join the Ninja team"><span class="num">06</span><span class="lbl">Careers</span></a>
   <a class="sheet-item" href="#contact" onclick="closeSheet()"><span class="num">07</span><span class="lbl">Contact</span></a>
   <div class="sheet-foot">
     <a href="https://maps.google.com/?q=4629+S+Cooper+St+Ste+125,+Arlington,+TX+76017" target="_blank" rel="noopener">4629 S Cooper St, Ste 125 · Arlington, TX 76017</a>
@@ -356,6 +356,31 @@ a.f-line:hover{color:var(--cream)}
       <a class="dl-btn b-door" aria-label="Order on DoorDash" href="https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/?event_type=autocomplete&pickup=false" target="_blank" rel="noopener"><span class="go">↗</span></a>
       <a class="dl-btn b-grub" aria-label="Order on Grubhub" href="https://www.grubhub.com/restaurant/ninja-sushi-and-grill-4629-s-cooper-st-ste-125-arlington/2350892" target="_blank" rel="noopener"><span class="go">↗</span></a>
       <div class="order-note">No app installed? The link automatically opens the App Store or Google Play.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAREERS ============ -->
+<section class="careers-sec reveal" id="careers" style="padding:5rem 0 2rem;">
+  <div class="wrap" style="max-width:980px;">
+    <div class="enq-head reveal" style="margin-bottom:1.5rem;">
+      <span class="eyebrow">Join the Team</span>
+      <h2 class="h-big">Come<br><i>roll with us.</i></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1.3fr .7fr;gap:2rem;align-items:center;">
+      <div style="background:rgba(255,255,255,0.02);border:1px solid var(--hair);padding:2rem;border-radius:18px;">
+        <p style="font-size:1.08rem;line-height:1.7;color:rgba(237,229,211,.88);margin:0 0 1rem;">
+          At Ninja Revolving Sushi, we are building a team that brings energy, hospitality, and heart to every guest experience.
+          If you love creating memorable moments, working with a fun and fast-moving team, and helping guests feel welcome from the moment they walk in, we’d love to hear from you.
+        </p>
+        <p style="font-size:1.08rem;line-height:1.7;color:rgba(237,229,211,.88);margin:0 0 1.5rem;">
+          Please fill out the application form and we will get back to you as soon as possible. Thank you for showing interest in joining the Ninja Revolving Sushi family.
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;align-items:flex-start;">
+        <a id="careers-apply-btn" class="hbtn solid" href="https://forms.gle/pcqr7Awohynffkcb6" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;">Fill This Form</a>
+        <div style="font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,229,211,.65);">Thank you for your interest</div>
+      </div>
     </div>
   </div>
 </section>
@@ -428,7 +453,7 @@ a.f-line:hover{color:var(--cream)}
         <a class="f-line" href="tel:+16822524367">Book a Table</a>
         <a class="f-line" href="tel:+16822524367">Pickup</a>
         <a class="f-line" href="#order">Delivery</a>
-        <a class="f-line" id="hiring-link-foot" href="https://forms.gle/pcqr7Awohynffkcb6" target="_blank" rel="noopener" title="Careers — Apply on Google Form">Hiring — Careers</a>
+        <a class="f-line" id="hiring-link-foot" href="#careers" title="Careers — Join the Ninja team">Hiring — Careers</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -947,8 +972,10 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   setIf('grubhub-link', SITE_CONFIG.deliveryLinks.grubhub);
 
   ['hiring-link','hiring-link-sheet','hiring-link-foot'].forEach(id => {
-    const a = document.getElementById(id); if(a && SITE_CONFIG.googleHiringForm){ a.href = SITE_CONFIG.googleHiringForm; a.target = '_blank'; }
+    const a = document.getElementById(id); if(a){ a.href = '#careers'; a.target = ''; }
   });
+  const applyBtn = document.getElementById('careers-apply-btn');
+  if(applyBtn && SITE_CONFIG.googleHiringForm){ applyBtn.href = SITE_CONFIG.googleHiringForm; }
 
   const enquireForm = document.querySelector('#enquire form');
   if(enquireForm){
