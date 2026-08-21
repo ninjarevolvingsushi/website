@@ -390,13 +390,9 @@ a.f-line:hover{color:var(--cream)}
     <div class="enq-head reveal">
       <span class="eyebrow">Get in Touch</span>
       <h2 class="h-big">How can<br><i>we help?</i></h2>
-      <p>Looking for opportunities, placing a large order, sharing feedback, or anything else — fill out the form and it goes straight to our inbox. We'll be in touch within 24 hours.</p>
+      <p>Looking for opportunities, placing a large order, sharing feedback, or anything else? Fill out the form and we’ll get back to you as soon as possible.</p>
     </div>
-    <form class="reveal" action="https://formsubmit.co/ninjasushigrill@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New message — Ninja Revolving Sushi website">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_bcc" value="6822524367@tmomail.net">
+    <form class="reveal" action="https://script.google.com/macros/s/AKfycbyJa4mgfB2NofzZsEmBxYt6SIqXMvYvw9su_P6r55nn2l6K7cNEPQcB8oSoUsgJs29W/exec" method="POST">
       <div class="field"><label for="f-name">Full Name *</label><input id="f-name" name="Full Name" type="text" required></div>
       <div class="field"><label for="f-email">Email Address *</label><input id="f-email" name="Email" type="email" required></div>
       <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="Phone" type="tel"></div>
@@ -949,7 +945,8 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 <script>
 (() => {
   const SITE_CONFIG = {
-    googleHiringForm: 'https://forms.gle/pcqr7Awohynffkcb6', // your Google Form URL
+    googleHiringForm: 'https://docs.google.com/forms/d/e/1FAIpQLSdBSmQZHO0UKVdycIAMUJrHxrnDDKwsiRCtOejmLga9JB3S3g/viewform',
+    appScriptUrl: 'https://script.google.com/macros/s/AKfycbyJa4mgfB2NofzZsEmBxYt6SIqXMvYvw9su_P6r55nn2l6K7cNEPQcB8oSoUsgJs29W/exec',
     contactEmail: 'ninjasushigrill@gmail.com',
     pickupLink: 'https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125',
     deliveryLinks: {
@@ -973,17 +970,8 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
   const enquireForm = document.querySelector('#enquire form');
   if(enquireForm){
-    enquireForm.action = 'https://formsubmit.co/' + SITE_CONFIG.contactEmail;
-    const small = enquireForm.querySelector('.send small'); if(small) small.textContent = 'Goes straight to ' + SITE_CONFIG.contactEmail + ' and text alert recipients';
-    if(SITE_CONFIG.smsRecipients && SITE_CONFIG.smsRecipients.length){
-      const existingBcc = enquireForm.querySelector('input[name="_bcc"]');
-      if(existingBcc){
-        existingBcc.value = SITE_CONFIG.smsRecipients.join(', ');
-      } else {
-        const h = document.createElement('input'); h.type='hidden'; h.name='_bcc'; h.value=SITE_CONFIG.smsRecipients.join(', ');
-        enquireForm.appendChild(h);
-      }
-    }
+    enquireForm.action = SITE_CONFIG.appScriptUrl || 'https://script.google.com/macros/s/AKfycbyJa4mgfB2NofzZsEmBxYt6SIqXMvYvw9su_P6r55nn2l6K7cNEPQcB8oSoUsgJs29W/exec';
+    const small = enquireForm.querySelector('.send small'); if(small) small.textContent = 'Sent to ' + SITE_CONFIG.contactEmail + ' and text alert recipients';
   }
 
   window.NINJA_SITE_CONFIG = SITE_CONFIG;
