@@ -6,18 +6,23 @@ function doGet() {
 
 function doPost(e) {
   try {
-    const raw = e && e.parameter ? e.parameter : {};
+    const raw = (e && (e.parameters || e.parameter)) || {};
 
     const getValue = (key, fallback = '') => {
       const value = raw[key];
+      if (value == null) return fallback;
       if (Array.isArray(value)) {
-        return value[0] || fallback;
+        return String(value[0] || fallback).trim();
       }
-      return value || fallback;
+      if (typeof value === 'object') {
+        const first = Object.values(value)[0];
+        return String(first ?? fallback).trim();
+      }
+      return String(value).trim() || fallback;
     };
 
     const fullName = getValue('Full Name', 'Not provided');
-    const email = getValue('Email', '').trim();
+    const email = getValue('Email', '');
     const phone = getValue('Phone', 'Not provided');
     const preferredDate = getValue('Preferred Date', 'Not provided');
     const reason = getValue('Reason', 'Not provided');
