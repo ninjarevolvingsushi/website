@@ -92,8 +92,8 @@ nav.scrolled{background:rgba(19,17,8,.92);backdrop-filter:blur(12px);border-colo
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
 .hero-media{position:absolute;inset:0;background:#000}
 .hero-media > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
-.hero-media video,.hero-media iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;pointer-events:none;border:0;transform:scale(1.12)}
-.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(19,17,8,.42),rgba(19,17,8,.22) 50%,rgba(19,17,8,.9))}
+.hero-media video,.hero-media iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92;pointer-events:none;border:0;transform:scale(1.08);filter:brightness(1.12) contrast(1.08) saturate(1.15)}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(19,17,8,.28),rgba(19,17,8,.16) 48%,rgba(19,17,8,.7))}
 .hero-meta{position:relative;z-index:5;display:flex;justify-content:space-between;max-width:1400px;width:100%;margin:0 auto;padding:8.5rem 1.6rem 0;font-size:.66rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim)}
 .hero-meta span:nth-child(2){display:none}
 @media(min-width:760px){.hero-meta span:nth-child(2){display:inline}}
@@ -191,6 +191,18 @@ nav.scrolled{background:rgba(19,17,8,.92);backdrop-filter:blur(12px);border-colo
 .order-apps.open{display:block}
 .order-apps h4{font-size:.66rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
 .order-note{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(237,229,211,.5);margin-top:.9rem;line-height:2}
+
+/* ================= GIFT CARD CTA ================= */
+.gift-card-cta{padding:4rem 0 5rem;scroll-margin-top:110px}
+.gift-card-cta .gift-card-shell{max-width:980px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.3rem;padding:1.45rem 1.5rem;border:1px solid rgba(255,214,102,.75);border-radius:28px;background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(198,154,69,.1));box-shadow:0 24px 52px rgba(0,0,0,.16),0 0 0 1px rgba(255,214,102,.12);}
+.gift-card-cta .gift-card-icon{width:78px;height:78px;border-radius:20px;border:1px solid rgba(255,214,102,.9);background:radial-gradient(circle at 30% 30%, rgba(255,214,102,.28), rgba(255,214,102,.08));display:grid;place-items:center;font-size:2.6rem;line-height:1;box-shadow:inset 0 0 18px rgba(255,214,102,.12)}
+.gift-card-cta .gift-card-copy{min-width:0}
+.gift-card-cta .gift-card-label{display:block;margin-bottom:.45rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,229,211,.75)}
+.gift-card-cta h3{margin:0 0 .5rem;font-size:clamp(1.55rem,2vw,2.2rem);line-height:1.15;letter-spacing:.02em}
+.gift-card-cta p{margin:0 0 .9rem;color:rgba(237,229,211,.86);font-size:1.05rem;line-height:1.7}
+.gift-card-cta .gift-card-link{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.3rem;border-radius:999px;background:linear-gradient(135deg,#ebc96a,#f7e3a9);color:#1c1612;font-weight:800;box-shadow:0 14px 30px rgba(235,201,106,.25);transition:transform .2s ease, box-shadow .2s ease}
+.gift-card-cta .gift-card-link:hover,.gift-card-cta .gift-card-link:focus-visible{transform:translateY(-1px);box-shadow:0 18px 34px rgba(235,201,106,.33)}
+@media(max-width:760px){.gift-card-cta{padding:3rem 0 4rem}.gift-card-cta .gift-card-shell{grid-template-columns:1fr;gap:1rem;padding:1.2rem 1rem;text-align:center}.gift-card-cta .gift-card-icon{margin:0 auto}.gift-card-cta .gift-card-copy{display:flex;flex-direction:column;align-items:center}.gift-card-cta p{text-align:center}}
 
 /* ================= BOOKING RESERVATION FLOW ================= */
 .booking-reserve{display:none;padding:5.5rem 0 4rem;background:linear-gradient(180deg,rgba(12,11,9,.96),rgba(19,17,8,.94));}
@@ -568,19 +580,15 @@ body.show-sticky-bar .sticky-order{display:grid}
 </section>
 
 <!-- ============ GIFT CARD CTA ============ -->
-<section class="gift-card-cta reveal" id="gift-card" aria-label="Gift card information" style="scroll-margin-top: 110px;">
+<section class="gift-card-cta reveal" id="gift-card" aria-label="Gift card information">
   <div class="wrap">
-    <div style="display:flex;align-items:center;justify-content:center;">
-      <div style="width:min(100%,880px);display:flex;align-items:center;gap:1.3rem;background:linear-gradient(135deg, rgba(255,255,255,0.07), rgba(198,154,69,0.1));border:1px solid rgba(255,214,102,0.7);border-radius:28px;padding:1.5rem 1.4rem;box-shadow:0 24px 52px rgba(0,0,0,0.16),0 0 0 1px rgba(255,214,102,0.12);transform:translateY(0);transition:transform .25s ease, box-shadow .25s ease;">
-        <div style="flex-shrink:0;width:74px;height:74px;border-radius:20px;border:1px solid rgba(255,214,102,0.9);background:radial-gradient(circle at 30% 30%, rgba(255,214,102,0.28), rgba(255,214,102,0.08));display:grid;place-items:center;font-size:2.5rem;line-height:1;box-shadow:inset 0 0 18px rgba(255,214,102,0.12);">🎁</div>
-        <div style="flex:1;min-width:0;text-align:left;">
-          <div style="display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,229,211,.75);margin-bottom:.45rem;">Gift Card</div>
-          <h3 style="margin:0 0 .5rem;font-size:clamp(1.55rem,2vw,2.2rem);line-height:1.15;letter-spacing:.02em;">Share a little joy.</h3>
-          <p style="margin:0 0 .9rem;color:rgba(237,229,211,.86);font-size:1.05rem;line-height:1.7;">
-            Want to gift someone something special? Send a gift card for a delicious surprise.
-          </p>
-          <a href="https://order.toasttab.com/egiftcards/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;color:#1c1612;font-weight:800;padding:.85rem 1.2rem;border-radius:999px;background:linear-gradient(135deg, #ebc96a, #f7e3a9);box-shadow:0 14px 30px rgba(235,201,106,.25);">🎉 Click here</a>
-        </div>
+    <div class="gift-card-shell">
+      <div class="gift-card-icon" aria-hidden="true">🎁</div>
+      <div class="gift-card-copy">
+        <div class="gift-card-label">Gift Card</div>
+        <h3>Share a little joy.</h3>
+        <p>Want to gift someone something special? Send a gift card for a delicious surprise.</p>
+        <a class="gift-card-link" href="https://order.toasttab.com/egiftcards/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener">🎉 Click here</a>
       </div>
     </div>
   </div>
@@ -760,7 +768,6 @@ const MENU=[
    {n:"Philadelphia Roll",price:"$2.99"},
    {n:"Shrimp Tempura Roll",price:"$3.99"},
    {n:"Spicy Popcorn Shrimp Roll",price:"$3.99"},
-   {n:"Spicy Tuna Roll",price:"$2.99"},
    {n:"Cowboy Roll",price:"$3.99"},
    {n:"Joe Pool Lake Roll",price:"$3.99"},
    {n:"Caterpillar Roll",price:"$3.99"},
@@ -954,7 +961,6 @@ const SUSHI_ROLL_ASSET_ALIASES={
   "Philadelphia Roll":["SUSHI/SUSHI ROLL/Philadelphia Roll/ChatGPT Image May 29, 2026, 12_45_17 AM.png","Philadelphia Roll"],
   "Shrimp Tempura Roll":["SUSHI/SUSHI ROLL/Shrimp Tempura Roll/ChatGPT Image May 29, 2026, 09_25_29 PM.png","Shrimp Tempura Roll"],
   "Spicy Popcorn Shrimp Roll":["SUSHI/SUSHI ROLL/Spicy Popcorn Shrimp Roll/ChatGPT Image May 29, 2026, 09_35_36 PM.png","Spicy Popcorn Shrimp Roll"],
-  "Spicy Tuna Roll":["SUSHI/SUSHI ROLL/Spicy Tuna Roll/ChatGPT Image May 29, 2026, 09_35_36 PM.png","Spicy Tuna Roll"],
   "Cowboy Roll":["SUSHI/SUSHI ROLL/Cowboy Roll/ChatGPT Image May 28, 2026, 11_58_57 PM.png","Cowboy Roll"],
   "Joe Pool Lake Roll":["SUSHI/SUSHI ROLL/Joe Pool Lake/ChatGPT Image May 29, 2026, 12_24_34 AM.png","Joe Pool Lake Roll","Joe Pool Lake"],
   "Caterpillar Roll":["SUSHI/SUSHI ROLL/Caterpillar roll/ChatGPT Image May 28, 2026, 11_55_15 PM.png","Caterpillar Roll","Caterpillar roll"],
