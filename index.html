@@ -683,7 +683,7 @@ body.show-sticky-bar .sticky-order{display:grid}
       <h2 class="h-big">How can<br><i>we help?</i></h2>
       <p>Tell us what you need and we’ll get back to you as soon as possible.</p>
     </div>
-    <form class="reveal" action="https://script.google.com/macros/s/AKfycbyDbv0Ky9KQVLhjc8YLVtM1HJBzFClOitjNto4UNmmYoG3m0HVSa2_8aGOEoEWQDiJW/exec" method="POST">
+    <form class="reveal" action="https://script.google.com/macros/s/AKfycbwfB3ePCTvJ1g75xkccLVJIwch2DC26qErPRlsjyaLaFx2VxlrHUJW_k2c8MOPwtBpl/exec" method="POST">
       <div class="field"><label for="f-name">Full Name *</label><input id="f-name" name="Full Name" type="text" required></div>
       <div class="field"><label for="f-email">Email *</label><input id="f-email" name="Email" type="email" required></div>
       <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="Phone" type="tel"></div>
@@ -1570,7 +1570,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 <script>
 (() => {
-  const BOOKING_APP_URL = 'https://script.google.com/macros/s/AKfycbyDbv0Ky9KQVLhjc8YLVtM1HJBzFClOitjNto4UNmmYoG3m0HVSa2_8aGOEoEWQDiJW/exec';
+  const BOOKING_APP_URL = 'https://script.google.com/macros/s/AKfycbwfB3ePCTvJ1g75xkccLVJIwch2DC26qErPRlsjyaLaFx2VxlrHUJW_k2c8MOPwtBpl/exec';
 
   const states = {
     holdId: null,
@@ -1889,7 +1889,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
   const SITE_CONFIG = {
     googleHiringForm: 'https://docs.google.com/forms/d/e/1FAIpQLSdBSmQZHO0UKVdycIAMUJrHxrnDDKwsiRCtOejmLga9JB3S3g/viewform',
-    appScriptUrl: 'https://script.google.com/macros/s/AKfycbyDbv0Ky9KQVLhjc8YLVtM1HJBzFClOitjNto4UNmmYoG3m0HVSa2_8aGOEoEWQDiJW/exec',
+    appScriptUrl: 'https://script.google.com/macros/s/AKfycbwfB3ePCTvJ1g75xkccLVJIwch2DC26qErPRlsjyaLaFx2VxlrHUJW_k2c8MOPwtBpl/exec',
     contactEmail: 'ninjasushigrill@gmail.com',
     pickupLink: 'https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125',
     deliveryLinks: {
@@ -1913,7 +1913,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
   const enquireForm = document.querySelector('#enquire form');
   if(enquireForm){
-    enquireForm.action = SITE_CONFIG.appScriptUrl || 'https://script.google.com/macros/s/AKfycbyDbv0Ky9KQVLhjc8YLVtM1HJBzFClOitjNto4UNmmYoG3m0HVSa2_8aGOEoEWQDiJW/exec';
+    enquireForm.action = SITE_CONFIG.appScriptUrl || 'https://script.google.com/macros/s/AKfycbwfB3ePCTvJ1g75xkccLVJIwch2DC26qErPRlsjyaLaFx2VxlrHUJW_k2c8MOPwtBpl/exec';
     const status = enquireForm.querySelector('#form-status');
     if(status){
       status.textContent = 'Kindly send your message. We’ll update you soon.';
