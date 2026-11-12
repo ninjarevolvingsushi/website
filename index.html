@@ -5,6 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ninja Revolving Sushi — Arlington, TX</title>
 <meta name="description" content="Ninja Revolving Sushi — revolving sushi at 4629 S Cooper St Ste 125, Arlington, TX 76017. Red plates $1.99, orange $2.99, green $3.99. Book a table, order pickup, or choose delivery with Uber Eats, DoorDash, and Grubhub.">
+<link rel="canonical" href="https://www.ninjarevolvingsushi.com/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#131108">
+<meta property="og:type" content="restaurant">
+<meta property="og:site_name" content="Ninja Revolving Sushi">
+<meta property="og:title" content="Ninja Revolving Sushi — Arlington, TX">
+<meta property="og:description" content="Revolving sushi in Arlington, TX. Plates from $1.99 — book a table, order pickup, or get delivery.">
+<meta property="og:url" content="https://www.ninjarevolvingsushi.com/">
+<meta property="og:image" content="https://www.ninjarevolvingsushi.com/SUSHI/Cover%20page.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="SUSHI/Cover%20page.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Ninja Revolving Sushi",
+  "url": "https://www.ninjarevolvingsushi.com/",
+  "image": "https://www.ninjarevolvingsushi.com/SUSHI/Cover%20page.webp",
+  "logo": "https://www.ninjarevolvingsushi.com/SUSHI/logo_1.webp",
+  "telephone": "+1-682-252-4367",
+  "email": "ninjasushigrill@gmail.com",
+  "servesCuisine": ["Japanese", "Sushi"],
+  "priceRange": "$",
+  "acceptsReservations": "https://www.ninjarevolvingsushi.com/#reserve",
+  "hasMenu": "https://www.ninjarevolvingsushi.com/#menu",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4629 S Cooper St, Ste 125",
+    "addressLocality": "Arlington",
+    "addressRegion": "TX",
+    "postalCode": "76017",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "11:30", "closes": "22:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "11:30", "closes": "22:30"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "22:00"}
+  ],
+  "sameAs": [
+    "https://www.instagram.com/ninjasushigrill",
+    "https://www.facebook.com/ninjasushigrill"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Great+Vibes&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,9 +59,10 @@
   --ink:#131108;
   --ink-2:#1B1810;
   --cream:#EDE5D3;
-  --cream-dim:rgba(237,229,211,.62);
+  --cream-dim:rgba(237,229,211,.86);
   --gold:#B49A5E;
-  --green:#2C4636;
+  --green:#3B1A15; /* accent section color (was dark green #2C4636) */
+  --accent:#3B1A15;
   --hair:rgba(237,229,211,.18);
   /* plate colors (from your restaurant) */
   --p-red:#C4291D;
@@ -27,32 +74,34 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);font-weight:300;background:var(--ink);color:var(--cream);line-height:1.7;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+body{font-family:var(--body);font-weight:400;background:var(--ink);color:var(--cream);line-height:1.7;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 #site-logo,.brand img,.sheet .brand img{filter:drop-shadow(0 4px 10px rgba(0,0,0,.22));background:transparent}
 ::selection{background:var(--gold);color:var(--ink)}
 .wrap{max-width:1240px;margin:0 auto;padding:0 1.4rem}
-.eyebrow{font-size:.68rem;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
+.eyebrow{font-size:.68rem;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);text-shadow:0 2px 10px rgba(0,0,0,.75)}
 .h-big{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:1.08}
-.reveal{opacity:0;transform:translateY(48px) scale(.985);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);transition-delay:var(--rd,0s)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);transition-delay:var(--rd,0s)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ================= NAV ================= */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
 nav.scrolled{background:rgba(19,17,8,.92);backdrop-filter:blur(12px);border-color:var(--hair)}
-.nav-in{max-width:1400px;margin:0 auto;padding:1.2rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
-.brand{line-height:1;text-align:left}
+.nav-in{max-width:1400px;margin:0 auto;padding:1.2rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.brand{line-height:1;text-align:left;flex:0 0 auto}
+/* logo always the same size (216x72) — the nav collapses instead of shrinking it */
+.logo-img{display:block;width:216px;height:72px;max-width:none;object-fit:contain;flex:0 0 auto}
 .brand .scr{font-family:var(--script);font-size:1.25rem;color:var(--cream);display:block;transform:translateY(3px)}
 .brand .big{font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:.4em;display:block}
-.nav-links{display:flex;align-items:center;gap:2rem;font-size:.72rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase}
-.nav-links > a{opacity:.85;transition:.2s;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:1.35rem;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.nav-links > a{opacity:1;transition:.2s;white-space:nowrap}
 .nav-links > a:hover{opacity:1;color:var(--gold)}
-.book-btn{border:1px solid var(--gold);color:var(--cream);padding:.85rem 1.6rem;font-size:.7rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;transition:.25s;white-space:nowrap}
+.book-btn{border:1px solid var(--gold);color:var(--cream);padding:.85rem 1.3rem;font-size:.7rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:.25s;white-space:nowrap}
 .book-btn:hover{background:var(--gold);color:var(--ink)}
 .dd{position:relative}
-.dd > button{background:none;border:none;color:var(--cream);font-family:var(--body);font-size:.72rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;opacity:.85;display:flex;align-items:center;gap:.45rem;padding:0}
+.dd > button{background:none;border:none;color:var(--cream);font-family:var(--body);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;opacity:1;display:flex;align-items:center;gap:.45rem;padding:0}
 .dd > button:hover{opacity:1;color:var(--gold)}
 .dd-panel{position:absolute;top:calc(100% + 1rem);left:50%;transform:translateX(-50%) translateY(-6px);min-width:250px;background:#F7F2E6;color:#181510;opacity:0;pointer-events:none;transition:.25s;box-shadow:0 24px 50px rgba(0,0,0,.45);padding:.6rem;z-index:120}
 .dd.open .dd-panel{opacity:1;pointer-events:auto;transform:translateX(-50%)}
@@ -77,16 +126,18 @@ nav.scrolled{background:rgba(19,17,8,.92);backdrop-filter:blur(12px);border-colo
 .dl-btn.b-door .go{border:1.5px solid rgba(24,21,16,.3);color:#1B1815}
 
 /* ================= FULLSCREEN MOBILE MENU ================= */
-.sheet{position:fixed;inset:0;z-index:200;background:var(--green);color:var(--cream);transform:translateY(-100%);transition:transform .5s cubic-bezier(.7,0,.2,1);overflow-y:auto;padding:1.4rem 1.6rem 3rem}
+.sheet{position:fixed;inset:0;z-index:200;background:#0F0D09;border-top:3px solid var(--gold);color:var(--cream);transform:translateY(-100%);transition:transform .5s cubic-bezier(.7,0,.2,1);overflow-y:auto;padding:1.4rem 1.6rem 3rem}
 .sheet.open{transform:none}
 .sheet-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
 .sheet-close{background:none;border:none;color:var(--cream);font-size:1.7rem;cursor:pointer;line-height:1;padding:.3rem}
 .sheet-item{display:block;border:none;background:none;text-align:left;width:100%;color:var(--cream);cursor:pointer;padding:1rem 0;border-bottom:1px solid rgba(237,229,211,.14)}
-.sheet-item .num{display:block;font-family:var(--body);font-size:.7rem;letter-spacing:.4em;color:rgba(237,229,211,.55);margin-bottom:.25rem}
-.sheet-item .lbl{font-family:var(--script);font-size:2.4rem;line-height:1.1}
+.sheet-item .num{display:inline-block;min-width:2.6rem;font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.2em;color:var(--gold);vertical-align:middle}
+.sheet-item .lbl{font-family:var(--body);font-weight:400;font-size:1.75rem;line-height:1.2;letter-spacing:.01em;vertical-align:middle;transition:color .2s}
+.sheet-item:hover .lbl,.sheet-item:focus-visible .lbl{color:var(--gold)}
+.sheet-item{padding:1.05rem 0!important}
 .sheet-sub{display:none;padding:.7rem 0 1.2rem}
 .sheet-sub.open{display:block}
-.sheet-foot{margin-top:2.2rem;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(237,229,211,.6);display:grid;gap:.5rem}
+.sheet-foot{margin-top:2.2rem;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,229,211,.8);display:grid;gap:.5rem}
 
 /* ================= HERO ================= */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
@@ -94,21 +145,25 @@ nav.scrolled{background:rgba(19,17,8,.92);backdrop-filter:blur(12px);border-colo
 .hero-media > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
 .hero-media video,.hero-media iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92;pointer-events:none;border:0;transform:scale(1.08);filter:brightness(1.12) contrast(1.08) saturate(1.15)}
 .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(19,17,8,.28),rgba(19,17,8,.16) 48%,rgba(19,17,8,.7))}
-.hero-meta{position:relative;z-index:5;display:flex;justify-content:space-between;max-width:1400px;width:100%;margin:0 auto;padding:8.5rem 1.6rem 0;font-size:.66rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim)}
+.hero-meta{position:relative;z-index:5;display:flex;justify-content:space-between;max-width:1400px;width:100%;margin:0 auto;padding:8.5rem 1.6rem 0;font-size:.78rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--cream)}
 .hero-meta span:nth-child(2){display:none}
 @media(min-width:760px){.hero-meta span:nth-child(2){display:inline}}
-.hero-open{position:relative;z-index:5;max-width:1400px;width:100%;margin:0 auto;padding:4rem 1.6rem 0;font-size:.66rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+.hero-open{position:relative;z-index:5;max-width:1400px;width:100%;margin:0 auto;padding:4rem 1.6rem 0;font-size:.8rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);text-shadow:0 2px 10px rgba(0,0,0,.75)}
 .hero-title{position:relative;z-index:5;margin-top:auto;max-width:1400px;width:100%;margin-left:auto;margin-right:auto;padding:0 1.6rem 3rem}
 .hero-title .scr{font-family:var(--script);font-size:clamp(2.2rem,6vw,4.2rem);color:var(--cream);display:block;margin-bottom:-.5em;padding-left:.4rem;text-shadow:0 3px 18px rgba(0,0,0,.6)}
 .hero-title .big{font-family:var(--display);font-weight:500;font-size:clamp(4.4rem,17vw,15rem);letter-spacing:.06em;line-height:.95;display:block;text-shadow:0 4px 26px rgba(0,0,0,.65)}
-.hero-title .tag{margin-top:1rem;font-size:.72rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim)}
+.hero-title .tag{margin-top:.4rem;font-size:.9rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);text-shadow:0 2px 10px rgba(0,0,0,.7)}
+/* hero headline, plate prices, today's hours (Nov 2026 update) */
+.hero-h1{margin:0 0 1rem;font-family:var(--body);font-weight:600;text-transform:uppercase;font-size:clamp(1.9rem,5.2vw,4.4rem);line-height:1.08;letter-spacing:.12em;color:var(--cream);text-shadow:0 3px 20px rgba(0,0,0,.7)}
+.hero-hours{margin-top:.8rem;font-size:.95rem;font-weight:500;letter-spacing:.12em;color:var(--cream)}
+.hero-hours b{color:var(--gold);font-weight:600}
 .hero-ctas{position:relative;z-index:5;max-width:1400px;width:100%;margin:0 auto;padding:0 1.6rem 2.6rem;display:flex;gap:.7rem;flex-wrap:wrap}
-.hbtn{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 1.2rem;font-size:.56rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transition:all .25s ease;cursor:pointer;border:1px solid rgba(237,229,211,.45);white-space:nowrap;min-width:0;flex:1 1 0;max-width:220px;background-color:rgba(19,17,8,.18);background:rgba(19,17,8,.18);color:var(--cream);box-shadow:inset 0 0 0 1px rgba(237,229,211,.08)}
+.hbtn{display:inline-flex;align-items:center;justify-content:center;padding:1.05rem 1.4rem;font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:all .25s ease;cursor:pointer;border:1px solid rgba(237,229,211,.45);white-space:nowrap;min-width:0;flex:1 1 0;max-width:220px;background-color:rgba(19,17,8,.18);background:rgba(19,17,8,.18);color:var(--cream);box-shadow:inset 0 0 0 1px rgba(237,229,211,.08)}
 .hbtn:hover,.hbtn:focus-visible,.hbtn:active,
 .hbtn.solid:hover,.hbtn.solid:focus-visible,.hbtn.solid:active,
 .hbtn.line:hover,.hbtn.line:focus-visible,.hbtn.line:active{background-color:rgba(237,229,211,.94);background:rgba(237,229,211,.94);color:var(--ink);border-color:rgba(237,229,211,.96);box-shadow:0 14px 26px rgba(0,0,0,.22)}
 .hbtn.solid,.hbtn.line{background-color:rgba(19,17,8,.18);background:rgba(19,17,8,.18);color:var(--cream)}
-@media(min-width:760px){.hero-ctas{justify-content:flex-start}.hbtn{max-width:190px}} 
+@media(min-width:760px){.hero-ctas{justify-content:flex-start}.hbtn{max-width:230px}} 
 
 /* ================= SMALL PLATE LEGEND ================= */
 .plegend{display:inline-flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.4rem;border:1px solid var(--hair);padding:.55rem 1rem;font-size:.7rem;letter-spacing:.06em;color:var(--cream-dim)}
@@ -123,6 +178,18 @@ nav.scrolled{background:rgba(19,17,8,.92);backdrop-filter:blur(12px);border-colo
 .menu-head h2{font-size:clamp(2.4rem,6vw,4.4rem)}
 .menu-head h2 .scr{font-family:var(--script);font-size:.55em;color:var(--gold);display:block;margin-bottom:-.35em}
 .menu-head p{color:var(--cream-dim);max-width:52ch;margin-top:1.2rem;font-size:.95rem}
+.menu-jump{max-width:1240px;margin:0 auto 2.6rem;padding:0 1.4rem;display:flex;gap:.5rem}
+.menu-jump a{flex:1 1 auto;text-align:center;padding:.62rem .7rem;border:1px solid rgba(237,229,211,.35);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);white-space:nowrap;transition:.2s}
+.menu-jump a:hover,.menu-jump a:focus-visible{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+/* medium screens: two even rows of five */
+@media(max-width:1199px) and (min-width:761px){.menu-jump{display:grid;grid-template-columns:repeat(5,1fr)}}
+/* phones: one swipeable row; the end spacer keeps the last button off the screen edge */
+@media(max-width:760px){
+  .menu-jump{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:0 .8rem;margin-bottom:1.8rem}
+  .menu-jump a{flex:0 0 auto;padding:.62rem 1rem}
+  .menu-jump::-webkit-scrollbar{display:none}
+  .menu-jump::after{content:"";flex:0 0 .2rem}
+}
 .mrow{margin-bottom:2.4rem}
 .mrow-head{max-width:1240px;margin:0 auto .8rem;padding:0 1.4rem;display:flex;align-items:baseline;gap:1.1rem}
 .mrow-head .num{font-size:.66rem;font-weight:500;letter-spacing:.34em;color:var(--gold)}
@@ -154,7 +221,7 @@ nav.scrolled{background:rgba(19,17,8,.92);backdrop-filter:blur(12px);border-colo
 .plate{position:relative;width:118px;height:118px;overflow:hidden;display:grid;place-items:center;animation:jiggle 1.3s ease-in-out infinite}
 .slot:nth-child(2n) .plate{animation-delay:.35s}
 .slot:nth-child(3n) .plate{animation-delay:.7s}
-@keyframes jiggle{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.6px)}}
+@keyframes jiggle{0%,100%{transform:translateY(0)}50%{transform:translateY(-1px)}}
 @media(prefers-reduced-motion:reduce){.plate{animation:none}}
 .plate .well{width:100%;height:100%;background:transparent;display:grid;place-items:center}
 .plate .dish{width:100%;height:100%;overflow:hidden;background:#E8E2D2;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 10px 18px rgba(0,0,0,.26)}
@@ -170,10 +237,11 @@ nav.scrolled{background:rgba(19,17,8,.92);backdrop-filter:blur(12px);border-colo
 .menu-note{max-width:1240px;margin:.4rem auto 0;padding:0 1.4rem;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim)}
 
 /* ================= ORDER ================= */
-.order-sec{background:var(--green);padding:5.5rem 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-.order-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:3.5rem;align-items:center}
+.order-sec{background:var(--ink);padding:5.5rem 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.dl-list{margin-top:1.6rem}
 .order-grid h2{font-size:clamp(2rem,5vw,3.4rem)}
-.order-grid h2 .scr{font-family:var(--script);font-size:.6em;color:var(--gold);display:block;margin-bottom:-.3em}
+.order-grid h2 .scr{font-family:var(--display);font-weight:400;font-size:.62em;color:var(--gold);display:block;margin-bottom:.1em;letter-spacing:.01em}
 .order-grid p{color:rgba(237,229,211,.7);margin-top:1rem;max-width:46ch;font-size:.95rem}
 .call-rows{display:grid;gap:.7rem;margin-top:1.6rem}
 .call-combined{display:flex;gap:1rem}
@@ -269,6 +337,7 @@ footer{background:#0D0B07;border-top:1px solid var(--hair);padding:5.5rem 0 0}
 footer h4{font-size:.64rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
 .f-line{display:block;color:var(--cream-dim);font-size:.94rem;margin-bottom:.55rem;transition:.2s}
 a.f-line:hover{color:var(--cream)}
+.hours .holiday{color:var(--gold)!important}
 .hours div{display:flex;justify-content:space-between;gap:1.4rem;font-size:.92rem;color:var(--cream-dim);margin-bottom:.55rem}
 .socials{display:flex;gap:.7rem;margin-top:1.3rem}
 .soc{width:44px;height:44px;border:1px solid var(--hair);display:grid;place-items:center;transition:.22s}
@@ -279,13 +348,70 @@ a.f-line:hover{color:var(--cream)}
 
 /* ================= sticky mobile bar ================= */
 .sticky-order{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;background:rgba(19,17,8,.96);backdrop-filter:blur(10px);border-top:1px solid var(--hair);padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
-.sticky-order a{text-align:center;padding:.9rem;font-size:.52rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;background:rgba(19,17,8,.18);color:var(--cream);border:1px solid rgba(237,229,211,.45);transition:all .25s ease}
+.sticky-order a{text-align:center;padding:.95rem .5rem;font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(19,17,8,.18);color:var(--cream);border:1px solid rgba(237,229,211,.45);transition:all .25s ease}
 .sticky-order a:hover,.sticky-order a:focus-visible,.sticky-order a:active{background:rgba(237,229,211,.94);color:var(--ink);border-color:rgba(237,229,211,.96)}
 body.show-sticky-bar .sticky-order{display:grid}
+/* Order section layout: left and right columns line up top and bottom */
+.order-sec .order-grid h2{line-height:1.08;margin:0}
+.order-sec .order-grid p{min-height:1.7em;max-width:none}
+.order-apps{padding-top:0!important}
+.order-sec .call-rows,.order-sec .dl-list{margin-top:1.6rem}
+.order-sec .call-combined{display:flex;flex-direction:column;gap:.6rem}
+.order-sec .call-combined .crow{flex:0 0 auto;height:calc((62px * 3 + .6rem * 2 - .6rem) / 2);padding:0 1.6rem}
+.order-sec .crow b{font-size:1.35rem;letter-spacing:.08em}
+.order-sec .crow span span{margin-top:.25rem;opacity:.75}
+.order-sec .crow > span:last-child{font-size:1.3rem;opacity:.9}
+.order-sec .order-note{margin-top:.9rem}
+@media(max-width:1020px){.order-sec .call-combined .crow{height:88px}.order-sec .order-grid{gap:3rem}}
 
-@media(max-width:1020px){
+/* ===== Nov 2026 additions ===== */
+.hp-field{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.booking-cta-line{background:transparent!important;color:var(--cream)!important;border:1px solid rgba(237,229,211,.45)!important}
+.booking-cta-line:hover{background:var(--cream)!important;color:var(--ink)!important}
+.map-sec{position:relative;height:340px;background:#0D0B07;border-top:1px solid var(--hair)}
+.map-sec iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.15) contrast(1.05)}
+.map-cta{position:absolute;left:1.4rem;bottom:1.4rem;background:var(--gold);color:var(--ink);padding:.85rem 1.2rem;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.map-cta:hover{background:var(--cream)}
+@media(max-width:600px){.map-sec{height:280px}}
+/* belts pause when off-screen */
+.mbelt.paused .plate,.mbelt.paused::before{animation-play-state:paused}
+.slot{cursor:pointer}
+.slot:hover .dish img{transform:scale(1.06)}
+.plate .dish img{transition:transform .35s ease}
+/* dish popup */
+.dish-modal{position:fixed;inset:0;z-index:400;background:rgba(8,7,5,.78);backdrop-filter:blur(6px);display:grid;place-items:center;padding:1.2rem;opacity:0;transition:opacity .22s ease}
+.dish-modal.show{opacity:1}
+.dish-modal[hidden]{display:none}
+.dish-card{position:relative;width:min(440px,100%);background:#17140D;border:1px solid var(--hair);border-radius:18px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55);transform:translateY(14px) scale(.97);transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.dish-modal.show .dish-card{transform:none}
+.dish-card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#222}
+.dish-meta{padding:1.1rem 1.3rem 1.4rem;display:grid;gap:.25rem}
+.dish-cat{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.dish-meta h3{font-family:var(--display);font-weight:500;font-size:1.5rem;line-height:1.2}
+.dish-price{font-size:1.15rem;font-weight:600;color:var(--cream)}
+.dish-note{font-size:.78rem;color:var(--cream-dim);margin-top:.2rem}
+.dish-close{position:absolute;top:.7rem;right:.7rem;width:40px;height:40px;border-radius:50%;border:none;background:rgba(19,17,8,.75);color:var(--cream);font-size:1.1rem;cursor:pointer}
+.dish-close:hover{background:var(--gold);color:var(--ink)}
+/* mobile menu items appear one by one */
+.sheet .sheet-item{opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease;transition-delay:0s}
+.sheet.open .sheet-item{opacity:1;transform:none;transition-delay:calc(.12s + var(--i,0) * .04s)}
+/* hero text fades in on load */
+@keyframes heroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-title,.hero-ctas{animation:heroIn .9s cubic-bezier(.16,1,.3,1) both}
+.hero-ctas{animation-delay:.18s}
+@media(prefers-reduced-motion:reduce){.hero-title,.hero-ctas{animation:none}.sheet .sheet-item{opacity:1;transform:none;transition:none}}
+
+/* Book a Table — filled gold button (hero, sticky bar, nav) */
+.hbtn.solid.book-trigger,.sticky-order a.book-trigger,.book-btn{background:var(--gold)!important;background-color:var(--gold)!important;color:var(--ink)!important;border-color:var(--gold)!important;font-weight:700}
+.hbtn.solid.book-trigger:hover,.sticky-order a.book-trigger:hover,.book-btn:hover{background:var(--cream)!important;background-color:var(--cream)!important;border-color:var(--cream)!important}
+
+
+/* collapse the nav into the ☰ menu before it can crowd the logo */
+@media(max-width:1099px){
   .nav-links{display:none}
   .burger{display:block}
+}
+@media(max-width:1020px){
   .order-grid{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
   form,.trio{grid-template-columns:1fr}
@@ -300,11 +426,11 @@ body.show-sticky-bar .sticky-order{display:grid}
   .hero-open{padding-top:2.6rem}
   .hero-title{padding-bottom:1.6rem}
   .hero-ctas{flex-direction:row;align-items:stretch;padding-bottom:1.8rem;padding-left:.8rem;padding-right:.8rem;gap:.5rem}
-  .hbtn{width:100%;justify-content:center;max-width:none;padding:.8rem .5rem;font-size:.48rem;letter-spacing:.14em}
+  .hbtn{width:100%;justify-content:center;max-width:none;padding:.95rem .4rem;font-size:.7rem;letter-spacing:.06em}
   .order-sec{padding:4rem 0}
   .call-combined{flex-direction:column}
   .sticky-order{padding:.55rem .7rem calc(.55rem + env(safe-area-inset-bottom));}
-  .sticky-order a{padding:.7rem .4rem;font-size:.48rem;letter-spacing:.12em}
+  .sticky-order a{padding:.85rem .3rem;font-size:.68rem;letter-spacing:.05em}
   .mbelt{overflow:hidden;cursor:grab;margin-top:.5rem}
   .mbelt::before{animation:none;display:block;opacity:1;top:82px;height:48px}
   .slot{width:104px;min-height:172px;justify-content:flex-end}
@@ -323,7 +449,7 @@ body.show-sticky-bar .sticky-order{display:grid}
 <!-- ============ NAV ============ -->
 <nav id="nav"><div class="nav-in">
   <a class="brand" href="#home">
-    <img src="SUSHI/logo_1.png" alt="Ninja Revolving Sushi" style="height:72px;object-fit:contain;display:block" id="site-logo">
+    <img src="SUSHI/logo_1.webp" alt="Ninja Revolving Sushi" class="logo-img" id="site-logo">
   </a>
     <div class="nav-links">
     <a href="#home">Home</a>
@@ -331,8 +457,8 @@ body.show-sticky-bar .sticky-order{display:grid}
     <div class="dd">
       <button class="dd-trigger" type="button" aria-expanded="false" aria-controls="nav-delivery-menu">Delivery</button>
       <div class="dd-panel" id="nav-delivery-menu">
-        <a href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ?d=2026-08-21&diningMode=DELIVERY&et=780&mod=quickView&modctx=%257B%2522storeUuid%2522%253A%2522a6aec8db-bd54-4a0f-8f0e-832880a138a9%2522%252C%2522sectionUuid%2522%253A%2522267d7710-0cd8-492a-92aa-4b98217c475d%2522%252C%2522subsectionUuid%2522%253A%25220379a62a-1156-4ddb-a09a-7e1dc45d5dfb%2522%252C%2522itemUuid%2522%253A%2522cd89c549-1d57-4278-9074-c40d2755be12%2522%252C%2522showSeeDetailsCTA%2522%253Atrue%257D&ps=1&sc=SEARCH_SUGGESTION&st=750" target="_blank" rel="noopener">Uber Eats</a>
-        <a href="https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/?event_type=autocomplete&pickup=false" target="_blank" rel="noopener">DoorDash</a>
+        <a href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ" target="_blank" rel="noopener">Uber Eats</a>
+        <a href="https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/" target="_blank" rel="noopener">DoorDash</a>
         <a href="https://www.grubhub.com/restaurant/ninja-sushi-and-grill-4629-s-cooper-st-ste-125-arlington/2350892" target="_blank" rel="noopener">Grubhub</a>
       </div>
     </div>
@@ -351,7 +477,7 @@ body.show-sticky-bar .sticky-order{display:grid}
 <!-- ============ FULLSCREEN MOBILE MENU ============ -->
 <div class="sheet" id="sheet">
   <div class="sheet-top">
-    <span class="brand"><img src="SUSHI/logo_1.png" alt="Ninja Revolving Sushi" style="height:60px;object-fit:contain;display:block"></span>
+    <span class="brand"><img src="SUSHI/logo_1.webp" alt="Ninja Revolving Sushi" class="logo-img"></span>
     <button class="sheet-close" aria-label="Close menu" onclick="document.getElementById('sheet').classList.remove('open')">✕</button>
   </div>
   <a class="sheet-item" href="#home" onclick="closeSheet()"><span class="num">01</span><span class="lbl">Home</span></a>
@@ -361,8 +487,8 @@ body.show-sticky-bar .sticky-order{display:grid}
   <a class="sheet-item" href="https://www.toasttab.com/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125/rewardsSignup" target="_blank" rel="noopener"><span class="num">05</span><span class="lbl">Sign Up</span></a>
   <button class="sheet-item" onclick="document.getElementById('sheetDeliverySub').classList.toggle('open')"><span class="num">06</span><span class="lbl">Delivery</span></button>
   <div class="sheet-sub" id="sheetDeliverySub">
-    <a class="dl-btn b-uber" aria-label="Order on Uber Eats" href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ?d=2026-08-21&diningMode=DELIVERY&et=780&mod=quickView&modctx=%257B%2522storeUuid%2522%253A%2522a6aec8db-bd54-4a0f-8f0e-832880a138a9%2522%252C%2522sectionUuid%2522%253A%2522267d7710-0cd8-492a-92aa-4b98217c475d%2522%252C%2522subsectionUuid%2522%253A%25220379a62a-1156-4ddb-a09a-7e1dc45d5dfb%2522%252C%2522itemUuid%2522%253A%2522cd89c549-1d57-4278-9074-c40d2755be12%2522%252C%2522showSeeDetailsCTA%2522%253Atrue%257D&ps=1&sc=SEARCH_SUGGESTION&st=750" target="_blank" rel="noopener"><span class="go">↗</span></a>
-    <a class="dl-btn b-door" aria-label="Order on DoorDash" href="https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/?event_type=autocomplete&pickup=false" target="_blank" rel="noopener"><span class="go">↗</span></a>
+    <a class="dl-btn b-uber" aria-label="Order on Uber Eats" href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ" target="_blank" rel="noopener"><span class="go">↗</span></a>
+    <a class="dl-btn b-door" aria-label="Order on DoorDash" href="https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/" target="_blank" rel="noopener"><span class="go">↗</span></a>
     <a class="dl-btn b-grub" aria-label="Order on Grubhub" href="https://www.grubhub.com/restaurant/ninja-sushi-and-grill-4629-s-cooper-st-ste-125-arlington/2350892" target="_blank" rel="noopener"><span class="go">↗</span></a>
   </div>
   <a class="sheet-item" href="#gift-card" onclick="closeSheet()"><span class="num">07</span><span class="lbl">Gift Card</span></a>
@@ -384,7 +510,7 @@ body.show-sticky-bar .sticky-order{display:grid}
       loop
       playsinline
       preload="metadata"
-      poster="SUSHI/Cover page.png"
+      poster="SUSHI/Cover%20page.webp"
       aria-label="Fresh sushi background video"
     >
       <source src="videos/hero-final-optimized.mp4" type="video/mp4">
@@ -397,8 +523,9 @@ body.show-sticky-bar .sticky-order{display:grid}
   </div>
   <div class="hero-open">Fresh on the belt · Now open</div>
   <div class="hero-title">
-    <!-- center hero logo removed to keep top-left branding only -->
+    <h1 class="hero-h1">Ninja Revolving Sushi</h1>
     <div class="tag">Fresh plates, always moving — dinner and a show at every seat.</div>
+    <div class="hero-hours" id="hero-hours">Open daily · 4629 S Cooper St, Arlington</div>
   </div>
   <div class="hero-ctas" aria-label="Quick actions">
     <a class="hbtn solid book-trigger" href="#reserve">Book a Table</a>
@@ -477,7 +604,10 @@ body.show-sticky-bar .sticky-order{display:grid}
             <div><strong>Phone</strong><div id="booking-confirm-phone">—</div></div>
           </div>
           <p style="margin:0;color:var(--cream-dim);line-height:1.7;">4629 S Cooper St, Ste 125, Arlington, TX 76017<br />(682) 252-4367</p>
-          <button type="button" class="booking-cta" id="booking-new-search">Book another time</button>
+          <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+            <button type="button" class="booking-cta" id="booking-add-cal">Add to calendar</button>
+            <button type="button" class="booking-cta booking-cta-line" id="booking-new-search">Book another time</button>
+          </div>
         </div>
       </div>
     </div>
@@ -491,6 +621,7 @@ body.show-sticky-bar .sticky-order{display:grid}
     <div style="font-family:var(--script);font-size:clamp(2rem,4vw,3.2rem);color:var(--gold);line-height:1;letter-spacing:.02em;margin-top:.2rem;">alwaysRolling.</div>
     <p><strong>Dining Prices (Dine In Only)</strong><br><span style="display:inline-block; margin-right:.5rem;">🔴</span><strong>Red Plate</strong> — $1.99<br><span style="display:inline-block; margin-right:.5rem;">🟠</span><strong>Orange Plate</strong> — $2.99<br><span style="display:inline-block; margin-right:.5rem;">🟢</span><strong>Green Plate</strong> — $3.99<br><br>Looking for full sushi rolls and other favorites? Prices vary — check our <strong>Pickup</strong> or <strong>Delivery</strong> options.<br><br>Check out the full menu below!</p>
   </div>
+  <div class="menu-jump" id="menuJump" role="navigation" aria-label="Menu categories"></div>
   <div id="menuRows"></div>
   <div class="menu-note">Dine-in pricing · pickup &amp; delivery pricing varies</div>
 </section>
@@ -499,25 +630,24 @@ body.show-sticky-bar .sticky-order{display:grid}
 <section class="order-sec" id="order">
   <div class="wrap order-grid">
     <div class="reveal">
-      <span class="eyebrow">Order</span>
-      <h2 class="h-big"><span class="scr">book, pickup,</span>or delivery.</h2>
-      <p>Pick the option that works best for you. Book a table, order pickup online, or open delivery and choose Uber Eats, DoorDash, or Grubhub.</p>
+      <h2 class="h-big">Order and pickup</h2>
+      <p>Book a table, or order online and pick it up at the restaurant.</p>
       <div class="call-rows">
           <div class="call-combined">
             <a class="crow reveal book-trigger" href="#reserve"><span><b>Book a Table</b><span>Reserve online in a few steps</span></span><span>→</span></a>
             <a class="crow reveal" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener"><span><b>Pickup</b><span>Place a pickup order</span></span><span>→</span></a>
           </div>
-          <button class="crow reveal delivery-toggle" type="button" aria-expanded="false" aria-controls="delivery-panel">
-            <span><b>Delivery</b><span>Order through Uber Eats, DoorDash, or Grubhub</span></span>
-            <span class="chev">▾</span>
-          </button>
       </div>
+      <div class="order-note">Pickup orders are placed online through Toast.</div>
     </div>
-    <div class="order-apps reveal" id="delivery-panel">
-      <h4>Delivery</h4>
-      <a class="dl-btn b-uber" aria-label="Order on Uber Eats" href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ?d=2026-08-21&diningMode=DELIVERY&et=780&mod=quickView&modctx=%257B%2522storeUuid%2522%253A%2522a6aec8db-bd54-4a0f-8f0e-832880a138a9%2522%252C%2522sectionUuid%2522%253A%2522267d7710-0cd8-492a-92aa-4b98217c475d%2522%252C%2522subsectionUuid%2522%253A%25220379a62a-1156-4ddb-a09a-7e1dc45d5dfb%2522%252C%2522itemUuid%2522%253A%2522cd89c549-1d57-4278-9074-c40d2755be12%2522%252C%2522showSeeDetailsCTA%2522%253Atrue%257D&ps=1&sc=SEARCH_SUGGESTION&st=750" target="_blank" rel="noopener"><span class="go">↗</span></a>
-      <a class="dl-btn b-door" aria-label="Order on DoorDash" href="https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/?event_type=autocomplete&pickup=false" target="_blank" rel="noopener"><span class="go">↗</span></a>
-      <a class="dl-btn b-grub" aria-label="Order on Grubhub" href="https://www.grubhub.com/restaurant/ninja-sushi-and-grill-4629-s-cooper-st-ste-125-arlington/2350892" target="_blank" rel="noopener"><span class="go">↗</span></a>
+    <div class="order-apps reveal open" id="delivery-panel">
+      <h2 class="h-big">Delivery</h2>
+      <p>Order through Uber Eats, DoorDash, or Grubhub.</p>
+      <div class="dl-list">
+        <a class="dl-btn b-uber" aria-label="Order on Uber Eats" href="https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ" target="_blank" rel="noopener"><span class="go">↗</span></a>
+        <a class="dl-btn b-door" aria-label="Order on DoorDash" href="https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/" target="_blank" rel="noopener"><span class="go">↗</span></a>
+        <a class="dl-btn b-grub" aria-label="Order on Grubhub" href="https://www.grubhub.com/restaurant/ninja-sushi-and-grill-4629-s-cooper-st-ste-125-arlington/2350892" target="_blank" rel="noopener"><span class="go">↗</span></a>
+      </div>
       <div class="order-note">No app installed? The link automatically opens the App Store or Google Play.</div>
     </div>
   </div>
@@ -567,6 +697,7 @@ body.show-sticky-bar .sticky-order{display:grid}
           <select id="f-hear" name="Heard About Us"><option value="">Select</option><option>Instagram</option><option>Facebook</option><option>Google</option><option>Friends &amp; Family</option><option>Drove by</option><option>Other</option></select></div>
       </div>
       <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="Message" placeholder="Tell us a little more..."></textarea></div>
+      <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
       <div class="send">
         <button type="submit">Send Message →</button>
         <small id="form-status" aria-live="polite">Kindly send your message. We’ll update you soon.</small>
@@ -591,11 +722,17 @@ body.show-sticky-bar .sticky-order{display:grid}
 </section>
 
 <!-- ============ FOOTER ============ -->
+<section class="map-sec" aria-label="Map">
+  <iframe title="Map to Ninja Revolving Sushi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    src="https://maps.google.com/maps?q=Ninja%20Revolving%20Sushi%2C%204629%20S%20Cooper%20St%20Ste%20125%2C%20Arlington%2C%20TX%2076017&z=15&output=embed"></iframe>
+  <a class="map-cta" href="https://maps.google.com/?q=4629+S+Cooper+St+Ste+125,+Arlington,+TX+76017" target="_blank" rel="noopener">Get directions ↗</a>
+</section>
+
 <footer id="contact">
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="SUSHI/logo_1.png" alt="Ninja Revolving Sushi" style="height:72px;object-fit:contain;display:block;margin-bottom:.6rem">
+        <img src="SUSHI/logo_1.webp" alt="Ninja Revolving Sushi" class="logo-img" style="margin-bottom:.6rem">
         <p>A revolving sushi restaurant in the heart of Arlington, Texas. Fresh plates gliding past your table, all day long.</p>
         <div class="socials">
           <a class="soc" aria-label="Instagram" href="https://www.instagram.com/ninjasushigrill?igsh=dnI3d24xdWtud3pt" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 3.9a5.9 5.9 0 1 0 0 11.8 5.9 5.9 0 0 0 0-11.8Zm0 9.7a3.8 3.8 0 1 1 0-7.6 3.8 3.8 0 0 1 0 7.6Zm6.1-9.9a1.4 1.4 0 1 1-2.8 0 1.4 1.4 0 0 1 2.8 0Z"/></svg></a>
@@ -603,7 +740,7 @@ body.show-sticky-bar .sticky-order{display:grid}
         </div>
       </div>
       <div>
-        <h4>Visit</h4>
+        <h4>Location</h4>
         <a class="f-line" href="https://maps.google.com/?q=4629+S+Cooper+St+Ste+125,+Arlington,+TX+76017" target="_blank" rel="noopener">4629 S Cooper St, Ste 125<br>Arlington, TX 76017 — Directions ↗</a>
         <a class="f-line" href="tel:+16822524367">(682) 252-4367</a>
         <a class="f-line" href="mailto:ninjasushigrill@gmail.com">ninjasushigrill@gmail.com</a>
@@ -619,18 +756,32 @@ body.show-sticky-bar .sticky-order{display:grid}
       <div>
         <h4>Explore</h4>
         <a class="f-line" href="#menu">Menu</a>
-        <a class="f-line" href="tel:+16822524367">Book a Table</a>
+        <a class="f-line book-trigger" href="#reserve">Book a Table</a>
         <a class="f-line" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener">Pickup</a>
         <a class="f-line" href="#order">Delivery</a>
         <a class="f-line" id="hiring-link-foot" href="#careers" title="Careers — Join the Ninja team">Hiring — Careers</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Ninja Revolving Sushi · 4629 S Cooper St Ste 125, Arlington, TX 76017</span>
+      <span>© <span id="year">2026</span> Ninja Revolving Sushi · 4629 S Cooper St Ste 125, Arlington, TX 76017</span>
       <span>ninjarevolvingsushi.com</span>
     </div>
   </div>
 </footer>
+
+<!-- dish popup -->
+<div class="dish-modal" id="dishModal" role="dialog" aria-modal="true" aria-labelledby="dishModalName" hidden>
+  <div class="dish-card">
+    <button type="button" class="dish-close" aria-label="Close">✕</button>
+    <img id="dishModalImg" alt="">
+    <div class="dish-meta">
+      <span class="dish-cat" id="dishModalCat"></span>
+      <h3 id="dishModalName"></h3>
+      <span class="dish-price" id="dishModalPrice"></span>
+      <span class="dish-note">Dine-in price · pickup &amp; delivery pricing varies</span>
+    </div>
+  </div>
+</div>
 
 <!-- sticky mobile bar -->
 <div class="sticky-order" aria-label="Quick actions">
@@ -685,7 +836,7 @@ const MENU=[
    {n:"Shrimp Tempura Bun",price:"$2.99"},
    {n:"Veggie Tempura",price:"$3.99"},
    {n:"Chicken Gyoza",price:"$2.99"},
-   {n:"Chicken Karage",price:"$2.99"},
+   {n:"Chicken Karaage",price:"$2.99"},
    {n:"Shrimp Tempura",price:"$2.99"},
    {n:"Soft Shell Crab",price:"$6.99"},
    {n:"Crab Stick Tempura",price:"$1.99"},
@@ -704,7 +855,7 @@ const MENU=[
    {n:"Yellowtail Sashimi",price:"$4.99"}]},
  {cat:"Nigiri",items:[
    {n:"Salmon",price:"$3.99"},
-   {n:"Seared Hokkido Octopus",price:"$3.99"},
+   {n:"Seared Hokkaido Octopus",price:"$3.99"},
    {n:"Seared Scallop with Japanese Mayo",price:"$3.99"},
    {n:"Squid",price:"$3.99"},
    {n:"Umami Oil Seared Beef",price:"$3.99"},
@@ -723,13 +874,13 @@ const MENU=[
    {n:"Yuzu Jalapeno Sweet Shrimp",price:"$3.99"},
    {n:"Premium American Beef",price:"$3.99"},
    {n:"Eel",price:"$3.99"},
-   {n:"Hokkido Scallop",price:"$3.99"},
+   {n:"Hokkaido Scallop",price:"$3.99"},
    {n:"Seared Beef with Yakiniku Sauce",price:"$3.99"},
    {n:"Seared Salmon with Japanese Mayo",price:"$3.99"},
    {n:"Shrimp",price:"$3.99"}]},
  {cat:"Gunkan",items:[
    {n:"Premium American Beef Gunkan",price:"$3.99"},
-   {n:"Umami Oil Hokkido Octopus Gunkan",price:"$3.99"},
+   {n:"Umami Oil Hokkaido Octopus Gunkan",price:"$3.99"},
    {n:"Umami Sesame Patagonian Scallops Gunkan",price:"$3.99"},
    {n:"Ikura (Salmon Roe) Gunkan",price:"$3.99"},
    {n:"Bulgogi Tofu Inari Gunkan",price:"$1.99"},
@@ -751,7 +902,7 @@ const MENU=[
    {n:"Miami Beach",price:"$3.99"},
    {n:"Alaskan Roll",price:"$3.99"},
    {n:"Temptation Roll",price:"$3.99"},
-   {n:"Louisian Roll",price:"$3.99"},
+   {n:"Louisiana Roll",price:"$3.99"},
    {n:"Ninja Fire",price:"$3.99"},
    {n:"Cucumber Maki",price:"$2.99"},
    {n:"Tuna Maki",price:"$2.99"},
@@ -780,7 +931,7 @@ const MENU=[
    {n:"California Hand Roll",price:"$4.99"},
    {n:"Spicy Scallop Hand Roll",price:"$4.99"},
    {n:"Spider Hand Roll",price:"$4.99"},
-   {n:"Shrimp Tempura Handroll",price:"$4.99"},
+   {n:"Shrimp Tempura Hand Roll",price:"$4.99"},
    {n:"Avocado Hand Roll",price:"$3.99"},
    {n:"Eel Hand Roll",price:"$4.99"},
    {n:"Spicy Patagonian Scallop Hand Roll",price:"$4.99"},
@@ -788,17 +939,17 @@ const MENU=[
    {n:"Vegetable Hand Roll",price:"$4.99"}]},
  {cat:"Dessert",items:[
    {n:"Red Bean Daifuku",price:"$2.99"},
-   {n:"Cream Brulee",price:"$1.99"},
+   {n:"Crème Brûlée",price:"$1.99"},
    {n:"Matcha Mochi Ice Cream",price:"$2.99"},
    {n:"Chocolate Mochi Ice Cream",price:"$2.99"},
    {n:"Strawberry Mochi Ice Cream",price:"$2.99"},
    {n:"Vanilla Mochi Ice Cream",price:"$2.99"},
    {n:"Strawberry Daifuku (with Red Bean)",price:"$2.99"},
    {n:"Matcha Daifuku (Red Bean)",price:"$2.99"},
-   {n:"Vanillia Ice Cream",price:"$1.99"},
+   {n:"Vanilla Ice Cream",price:"$1.99"},
    {n:"Matcha Ice Cream",price:"$1.99"},
    {n:"Taiyaki Ice Cream",price:"$4.99"},
-   {n:"Yuzu Cheese Cake",price:"$3.99"},
+   {n:"Yuzu Cheesecake",price:"$3.99"},
    {n:"Sesame Ball",price:"$2.99"},
    {n:"Tempura Banana",price:"$1.99"}]},
  {cat:"Drinks",items:[
@@ -906,7 +1057,7 @@ const CRISPY_RICE_ASSET_ALIASES={
 };
 const NIGIRI_ASSET_ALIASES={
   "Salmon":["SUSHI/Nigiri/Salmon/ChatGPT Image May 29, 2026, 10_19_17 PM.png","Salmon"],
-  "Seared Hokkido Octopus":["SUSHI/Nigiri/Seared Hokkido Octopus/ChatGPT Image 2026年5月29日 22_51_14.png","Seared Hokkido Octopus"],
+  "Seared Hokkaido Octopus":["SUSHI/Nigiri/Seared Hokkido Octopus/ChatGPT Image 2026年5月29日 22_51_14.png","Seared Hokkido Octopus"],
   "Seared Scallop with Japanese Mayo":["SUSHI/Nigiri/Seared Scallop with Japanese Mayo/ChatGPT Image May 30, 2026 at 02_18_30 PM.png","Seared Scallop with Japanese Mayo"],
   "Squid":["SUSHI/Nigiri/Squid/ChatGPT Image 2026年5月29日 23_37_38.png","Squid"],
   "Umami Oil Seared Beef":["SUSHI/Nigiri/Umami Oil Seared Beef/ChatGPT Image 2026年5月29日 23_54_17.png","Umami Oil Seared Beef"],
@@ -925,7 +1076,7 @@ const NIGIRI_ASSET_ALIASES={
   "Yuzu Jalapeno Sweet Shrimp":["SUSHI/Nigiri/Yuzu Jalapeno Sweet Shrimp/ChatGPT Image 2026年5月30日 00_00_44.png","Yuzu Jalapeno Sweet Shrimp"],
   "Premium American Beef":["SUSHI/Nigiri/Premium American Beef/ChatGPT Image May 29, 2026, 10_17_41 PM.png","Premium American Beef"],
   "Eel":["SUSHI/Nigiri/Eel/Eel.png","Eel"],
-  "Hokkido Scallop":["SUSHI/Nigiri/Hokkido Scallop/ChatGPT Image May 29, 2026, 10_13_38 PM.png","Hokkido Scallop"],
+  "Hokkaido Scallop":["SUSHI/Nigiri/Hokkido Scallop/ChatGPT Image May 29, 2026, 10_13_38 PM.png","Hokkido Scallop"],
   "Seared Beef with Yakiniku Sauce":["SUSHI/Nigiri/Seared Beef with Yakiniku Sauce/ChatGPT Image May 29, 2026, 10_38_30 PM.png","Seared Beef with Yakiniku Sauce"],
   "Seared Salmon with Japanese Mayo":["SUSHI/Nigiri/Seared Salmon with Japanese Mayo/ChatGPT Image May 30, 2026 at 02_15_51 PM.png","Seared Salmon with Japanese Mayo"],
   "Shrimp":["SUSHI/Nigiri/Shrimp/ChatGPT Image 2026年5月29日 23_06_56.png","Shrimp"]
@@ -944,7 +1095,7 @@ const SUSHI_ROLL_ASSET_ALIASES={
   "Miami Beach":["SUSHI/SUSHI ROLL/Miami Beach/ChatGPT Image May 29, 2026, 12_32_42 AM.png","Miami Beach"],
   "Alaskan Roll":["SUSHI/SUSHI ROLL/Alaskan Roll/ChatGPT Image May 28, 2026, 11_49_36 PM.png","Alaskan Roll"],
   "Temptation Roll":["SUSHI/SUSHI ROLL/Temptation Roll/ChatGPT Image May 29, 2026, 09_47_32 PM.png","Temptation Roll"],
-  "Louisian Roll":["SUSHI/SUSHI ROLL/Louisiana Roll/ChatGPT Image May 29, 2026, 12_27_52 AM.png","Louisian Roll","Louisiana Roll"],
+  "Louisiana Roll":["SUSHI/SUSHI ROLL/Louisiana Roll/ChatGPT Image May 29, 2026, 12_27_52 AM.png","Louisian Roll","Louisiana Roll"],
   "Ninja Fire":["SUSHI/SUSHI ROLL/Ninja Fire roll/ChatGPT Image May 29, 2026, 12_43_23 AM.png","Ninja Fire","Ninja Fire roll"],
   "Cucumber Maki":["SUSHI/SUSHI ROLL/Cucumber Maki/ChatGPT Image May 29, 2026, 12_10_23 AM.png","Cucumber Maki"],
   "Tuna Maki":["SUSHI/SUSHI ROLL/Tuna Maki/ChatGPT Image May 29, 2026, 09_51_07 PM.png","Tuna Maki"],
@@ -973,10 +1124,10 @@ const CATEGORY_ASSET_ALIASES={
     "Fried Shrimp Wonton":["Fried Shrimp wonton","fried-shrimp-wonton","Fried Shrimp Wonton"],
     "Takoyaki":["Takoyaki"],
     "Corn Kakiage":["Corn Kakiage"],
-    "Shrimp Tempura Bun":["Shrimp Tempura Bun","shrimp-tempura-bun","chashu bun","chashu-bun"],
+    "Shrimp Tempura Bun":["SUSHI/Appetizer/ChatGPT Image Jun 5, 2026 at 12_01_14 AM.webp","Shrimp Tempura Bun"],
     "Veggie Tempura":["Veggie Tempura"],
     "Chicken Gyoza":["Chicken Gyoza"],
-    "Chicken Karage":["Chicken Karaage","chicken-karaage"],
+    "Chicken Karaage":["Chicken Karaage","chicken-karaage"],
     "Shrimp Tempura":["Shrimp Tempura"],
     "Soft Shell Crab":["Softshell Crab","softshell-crab","Soft Shell Crab"],
     "Crab Stick Tempura":["Crab Stick Tempura","crab-stick-tempura"],
@@ -999,17 +1150,17 @@ const CATEGORY_ASSET_ALIASES={
   "Sushi Roll":SUSHI_ROLL_ASSET_ALIASES,
   "Dessert":{
     "Red Bean Daifuku":["Red Bean Daifuku","Red Bean Daifuku","daifuku"],
-    "Cream Brulee":["Cream Brulee"],
+    "Crème Brûlée":["Cream Brulee"],
     "Matcha Mochi Ice Cream":["Matcha mochi ice cream","matcha-mochi-ice-cream"],
     "Chocolate Mochi Ice Cream":["chocolate mochi ice cream","chocolate-mochi-ice-cream"],
     "Strawberry Mochi Ice Cream":["Strawberry mochi ice cream","strawberry-mochi-ice-cream"],
     "Vanilla Mochi Ice Cream":["Vanilla mochi ice cream","vanilla-mochi-ice-cream"],
     "Strawberry Daifuku (with Red Bean)":["Strawberry Daifuku","strawberry-daifuku"],
     "Matcha Daifuku (Red Bean)":["Matcha Daifuku","matcha-daifuku"],
-    "Vanillia Ice Cream":["Vanilla ice cream","vanilla-ice-cream"],
+    "Vanilla Ice Cream":["Vanilla ice cream","vanilla-ice-cream"],
     "Matcha Ice Cream":["Matcha ice cream","matcha-ice-cream"],
     "Taiyaki Ice Cream":["Taiyaki Ice cream","taiyaki-ice-cream"],
-    "Yuzu Cheese Cake":["Yuzu cheese cake","yuzu-cheese-cake"],
+    "Yuzu Cheesecake":["Yuzu cheese cake","yuzu-cheese-cake"],
     "Sesame Ball":["Sesame ball","sesame-ball"],
     "Tempura Banana":["Tempura Banana","tempura-banana"]
   },
@@ -1060,7 +1211,7 @@ const CATEGORY_ASSET_ALIASES={
   },
   "Gunkan":{
     "Premium American Beef Gunkan":["Premium American Beef"],
-    "Umami Oil Hokkido Octopus Gunkan":["Umami Oil Hokkai Octopus","umami-oil-hokkai-octopus"],
+    "Umami Oil Hokkaido Octopus Gunkan":["Umami Oil Hokkai Octopus","umami-oil-hokkai-octopus"],
     "Umami Sesame Patagonian Scallops Gunkan":["Umami Sesame Patagonian Scallop","umami-sesame-patagonian-scallop"],
     "Ikura (Salmon Roe) Gunkan":["Ikura Gunkan"],
     "Bulgogi Tofu Inari Gunkan":["Bulgogi Inari"],
@@ -1077,7 +1228,7 @@ const CATEGORY_ASSET_ALIASES={
     "California Hand Roll":["California Handroll Seaweed"],
     "Spicy Scallop Hand Roll":["Spicy Patagonia Scallop Hand Roll Seaweed"],
     "Spider Hand Roll":["Spider Hand Roll Seaweed"],
-    "Shrimp Tempura Handroll":["Shrimp Tempura Hand Roll Seaweed"],
+    "Shrimp Tempura Hand Roll":["Shrimp Tempura Hand Roll Seaweed"],
     "Avocado Hand Roll":["Avocado Handroll Seaweed"],
     "Eel Hand Roll":["Eel Hand Roll Seaweed"],
     "Spicy Patagonian Scallop Hand Roll":["Spicy Patagonia Scallop Hand Roll Seaweed"],
@@ -1212,8 +1363,13 @@ const imageCandidates=(name, category='')=>{
   for(const dir of dirs){
     for(const alias of aliases){
       if(alias.includes('/') || /\.(png|jpg|jpeg|webp)$/i.test(alias)){
-        const encoded=encodeURI(alias);
-        if(!seen.has(encoded)){ seen.add(encoded); out.push(encoded); }
+        /* Try the small .webp copy first (~25 KB) before the original
+           .png/.jpg (often 2–3 MB) so the menu loads fast on phones. */
+        const variants=/\.(png|jpe?g)$/i.test(alias) ? [alias.replace(/\.(png|jpe?g)$/i,'.webp'), alias] : [alias];
+        for(const v of variants){
+          const encoded=encodeURI(v);
+          if(!seen.has(encoded)){ seen.add(encoded); out.push(encoded); }
+        }
         continue;
       }
       for(const ext of exts){
@@ -1240,7 +1396,7 @@ MENU.forEach((row,idx)=>{
       const pc=kitchen?'':`--pc:${PLATES[it.plate].color}`;
       const fallback=PLACEHOLDERS[(pi++)%PLACEHOLDERS.length];
       const candidates=imageCandidates(it.n, row.cat);
-      plates+=`<div class="slot">
+      plates+=`<div class="slot"${r?' aria-hidden="true"':''}>
         <div class="plate ${kitchen?'kitchen':''}" style="${pc}">
           <div class="well"><div class="dish">
             <img src="${candidates[0]}" alt="${it.n}" loading="lazy"
@@ -1254,7 +1410,7 @@ MENU.forEach((row,idx)=>{
     });
   }
   const slat=1.6+idx*.15;
-  html+=`<div class="mrow reveal">
+  html+=`<div class="mrow reveal" id="menu-${slug(row.cat)}">
     <div class="mrow-head"><span class="num">0${idx+1}</span><h3>${row.cat}</h3><span class="ln"></span>
       <div class="mnav"><button type="button" class="mprev" aria-label="Move items left">‹</button><button type="button" class="mnext" aria-label="Move items right">›</button></div>
     </div>
@@ -1262,6 +1418,18 @@ MENU.forEach((row,idx)=>{
   </div>`;
 });
 rowsEl.innerHTML=html;
+/* category quick-jump buttons above the belts */
+const jumpEl=document.getElementById('menuJump');
+if(jumpEl){
+  jumpEl.innerHTML=MENU.map(row=>`<a href="#menu-${slug(row.cat)}">${row.cat}</a>`).join('');
+  jumpEl.addEventListener('click',e=>{
+    const a=e.target.closest('a'); if(!a) return;
+    const t=document.getElementById(a.getAttribute('href').slice(1)); if(!t) return;
+    e.preventDefault();
+    t.classList.add('in');
+    window.scrollTo({top:t.getBoundingClientRect().top+scrollY-110,behavior:'smooth'});
+  });
+}
 
 /* image fallback: walk the candidate list, then the placeholder */
 rowsEl.querySelectorAll('.dish img').forEach(img=>{
@@ -1282,6 +1450,7 @@ const reserveSection=document.getElementById('reserve');
 const openReservation=()=>{
   if(!reserveSection) return;
   reserveSection.classList.add('is-open');
+  if(window.ninjaOpenBooking) window.ninjaOpenBooking();
   reserveSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 const updateStickyHeroState=()=>{
@@ -1369,6 +1538,8 @@ document.querySelectorAll('.mrow').forEach(rowEl=>{
   belt.addEventListener('pointerleave',()=>{ st.hover=false; });
   rowEl.querySelector('.mnext').addEventListener('click',()=>{ st.glide+=252; st.resume=performance.now()+900; });
   rowEl.querySelector('.mprev').addEventListener('click',()=>{ st.glide-=252; st.resume=performance.now()+900; });
+  st.visible=false;
+  new IntersectionObserver(es=>es.forEach(e=>{ st.visible=e.isIntersecting; belt.classList.toggle('paused',!e.isIntersecting); }),{rootMargin:'120px 0px'}).observe(belt);
   belts.push(st);
 });
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1376,6 +1547,7 @@ let last=performance.now();
 function tick(now){
   const dt=Math.min((now-last)/1000,.05); last=now;
   for(const st of belts){
+    if(!st.visible || window.ninjaModalOpen) continue;
     if(!st.dragging && !st.hover && !reduced() && now>st.resume) st.off+=st.speed*dt;
     if(Math.abs(st.glide)>.5){ const step=st.glide*.16; st.off+=step; st.glide-=step; } else st.glide=0;
     const x=((st.off%st.half)+st.half)%st.half;
@@ -1390,7 +1562,7 @@ const groups=new Map();
 document.querySelectorAll('.reveal').forEach(el=>{
   const p=el.parentNode;
   const i=groups.get(p)||0;
-  el.style.setProperty('--rd',(i*0.12)+'s');
+  el.style.setProperty('--rd',Math.min(i*0.06,.3)+'s');
   groups.set(p,i+1);
 });
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
@@ -1697,6 +1869,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       elements.confirmParty.textContent = `${states.selectedParty} guests`;
       elements.confirmPhone.textContent = phone;
       setStep('confirmed');
+      window.ninjaLastBooking = { date: booking.date || states.selectedDate, time: states.selectedTime, party: states.selectedParty };
       clearHold();
       setStatus('Reservation confirmed.');
     } catch (error) {
@@ -1708,7 +1881,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     }
   });
 
-  fetchSlots();
+  /* Load available times only when a visitor opens "Book a Table"
+     (saves Apps Script quota — before, every page view triggered a lookup). */
+  let slotsLoaded = false;
+  window.ninjaOpenBooking = () => { if (!slotsLoaded) { slotsLoaded = true; fetchSlots(); } };
+  if (location.hash === '#reserve') { document.getElementById('reserve').classList.add('is-open'); window.ninjaOpenBooking(); }
 
   const SITE_CONFIG = {
     googleHiringForm: 'https://docs.google.com/forms/d/e/1FAIpQLSdBSmQZHO0UKVdycIAMUJrHxrnDDKwsiRCtOejmLga9JB3S3g/viewform',
@@ -1716,8 +1893,8 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     contactEmail: 'ninjasushigrill@gmail.com',
     pickupLink: 'https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125',
     deliveryLinks: {
-      uber: 'https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ?d=2026-08-21&diningMode=DELIVERY&et=780&mod=quickView&modctx=%257B%2522storeUuid%2522%253A%2522a6aec8db-bd54-4a0f-8f0e-832880a138a9%2522%252C%2522sectionUuid%2522%253A%2522267d7710-0cd8-492a-92aa-4b98217c475d%2522%252C%2522subsectionUuid%2522%253A%25220379a62a-1156-4ddb-a09a-7e1dc45d5dfb%2522%252C%2522itemUuid%2522%253A%2522cd89c549-1d57-4278-9074-c40d2755be12%2522%252C%2522showSeeDetailsCTA%2522%253Atrue%257D&ps=1&sc=SEARCH_SUGGESTION&st=750',
-      doordash: 'https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/?event_type=autocomplete&pickup=false',
+      uber: 'https://www.ubereats.com/store/ninja-sushi-%26-grill/pq7I271USg-PDoMogKE4qQ',
+      doordash: 'https://www.doordash.com/store/ninja-sushi-and-grill-arlington-43439/111418347/',
       grubhub: 'https://www.grubhub.com/restaurant/ninja-sushi-and-grill-4629-s-cooper-st-ste-125-arlington/2350892'
     },
     smsRecipients: ['6822524367@tmomail.net'] // Mint Mobile email-to-SMS gateway (10-digit number, no +1)
@@ -1745,6 +1922,14 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
     enquireForm.addEventListener('submit', async (event) => {
       event.preventDefault();
+
+      /* spam bots fill every field; real visitors never see this one */
+      const trap = enquireForm.querySelector('input[name="website"]');
+      if (trap && trap.value) {
+        if (status) { status.textContent = 'Thanks for sharing your message. We’ll look into it soon.'; status.style.color = '#dff7d7'; }
+        enquireForm.reset();
+        return;
+      }
 
       if (status) {
         status.textContent = 'Sending your message...';
@@ -1801,6 +1986,97 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
 
   window.NINJA_SITE_CONFIG = SITE_CONFIG;
+
+  /* "Add to calendar" — downloads an .ics file that Apple, Google and Outlook calendars all open */
+  const calBtn = document.getElementById('booking-add-cal');
+  if (calBtn) calBtn.addEventListener('click', () => {
+    const b = window.ninjaLastBooking; if (!b || !b.date) return;
+    const m = String(b.time || '').match(/(\d{1,2}):(\d{2})\s*(AM|PM)?/i); if (!m) return;
+    let h = +m[1]; const min = +m[2], ap = (m[3] || '').toUpperCase();
+    if (ap === 'PM' && h < 12) h += 12; if (ap === 'AM' && h === 12) h = 0;
+    const d = b.date.replace(/-/g, ''), pad = n => String(n).padStart(2, '0');
+    const end = h * 60 + min + 90, start = `${d}T${pad(h)}${pad(min)}00`, stop = `${d}T${pad(Math.floor(end / 60) % 24)}${pad(end % 60)}00`;
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Ninja Revolving Sushi//Booking//EN','BEGIN:VEVENT',
+      `UID:${Date.now()}@ninjarevolvingsushi.com`,`DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').slice(0,15)}Z`,
+      `DTSTART:${start}`,`DTEND:${stop}`,`SUMMARY:Ninja Revolving Sushi — table for ${b.party}`,
+      'LOCATION:4629 S Cooper St\\, Ste 125\\, Arlington\\, TX 76017','DESCRIPTION:Questions? Call (682) 252-4367',
+      'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+    const a = document.createElement('a'); a.href = url; a.download = 'ninja-sushi-reservation.ics';
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+  });
+})();
+</script>
+<script>
+/* ===== Nov 2026 additions: dish popup, menu stagger, video pause, year ===== */
+(()=>{
+  const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+  document.querySelectorAll('.sheet .sheet-item').forEach((el,i)=>el.style.setProperty('--i',i));
+
+  /* tap a dish on the belt to see it large */
+  const modal=document.getElementById('dishModal'), rows=document.getElementById('menuRows');
+  if(modal && rows){
+    const img=document.getElementById('dishModalImg'), nm=document.getElementById('dishModalName'),
+          pr=document.getElementById('dishModalPrice'), cat=document.getElementById('dishModalCat');
+    let lastFocus=null;
+    const close=()=>{ modal.classList.remove('show'); window.ninjaModalOpen=false;
+      setTimeout(()=>{ modal.hidden=true; },220); if(lastFocus) lastFocus.focus(); };
+    rows.addEventListener('click',e=>{
+      /* the belt captures the pointer for dragging, so find the dish under the click point */
+      const slot=e.target.closest('.slot')||document.elementsFromPoint(e.clientX,e.clientY).map(el=>el.closest&&el.closest('.slot')).find(Boolean);
+      if(!slot) return;
+      const pic=slot.querySelector('.dish img'), name=slot.querySelector('.pinfo b'), price=slot.querySelector('.pinfo .pr');
+      const row=slot.closest('.mrow'); const h=row&&row.querySelector('.mrow-head h3');
+      img.src=pic?pic.currentSrc||pic.src:''; img.alt=name?name.textContent:'';
+      nm.textContent=name?name.textContent:''; pr.textContent=price?price.textContent:''; cat.textContent=h?h.textContent:'';
+      lastFocus=document.activeElement; modal.hidden=false; window.ninjaModalOpen=true;
+      requestAnimationFrame(()=>modal.classList.add('show')); modal.querySelector('.dish-close').focus();
+    });
+    modal.addEventListener('click',e=>{ if(e.target===modal||e.target.closest('.dish-close')) close(); });
+    addEventListener('keydown',e=>{ if(e.key==='Escape'&&!modal.hidden) close(); });
+  }
+
+  /* pause the hero video when it is off-screen or the tab is hidden (saves phone battery) */
+  const v=document.querySelector('.hero-media video');
+  if(v){ let onScreen=true;
+    const sync=()=>{ if(onScreen&&!document.hidden){ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); } else v.pause(); };
+    new IntersectionObserver(es=>{ onScreen=es[0].isIntersecting; sync(); }).observe(v);
+    document.addEventListener('visibilitychange',sync);
+  }
+})();
+</script>
+<script>
+/* Today's hours in the hero — keep in sync with the HOURS list in the footer. */
+(()=>{
+  const el=document.getElementById('hero-hours'); if(!el) return;
+  // 0=Sun … 6=Sat ; [open, close] in 24h minutes
+  const H={0:[720,1320],1:[690,1320],2:[690,1320],3:[690,1320],4:[690,1320],5:[690,1350],6:[690,1350]};
+  const fmt=m=>{let h=Math.floor(m/60),mi=m%60,ap=h>=12?'PM':'AM';h=h%12||12;return h+':'+String(mi).padStart(2,'0')+' '+ap};
+  let now;
+  try{ now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Chicago'})); }catch(e){ now=new Date(); }
+  /* ★ HOLIDAY HOURS — add one line per special day (date in YYYY-MM-DD).
+       {date:"2026-11-26", closed:true, note:"Thanksgiving"}
+       {date:"2026-12-24", open:"11:30", close:"18:00", note:"Christmas Eve"}   */
+  const HOLIDAY_HOURS=[
+  ];
+  const toMin=t=>{const [h,m]=t.split(':').map(Number);return h*60+m};
+  const pad=n=>String(n).padStart(2,'0');
+  const key=`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+  const special=HOLIDAY_HOURS.find(d=>d.date===key);
+  const cur=now.getHours()*60+now.getMinutes();
+  if(special&&special.closed){ el.innerHTML=`<b>Closed today</b> · ${special.note||'Holiday'}`; }
+  else{
+    const [o,c]=special?[toMin(special.open),toMin(special.close)]:H[now.getDay()];
+    const today=`Today ${fmt(o)} – ${fmt(c)}${special?` (${special.note||'holiday hours'})`:''}`;
+    el.innerHTML = cur>=o && cur<c ? `<b>Open now</b> · ${today}` : cur<o ? `<b>Opens at ${fmt(o)}</b> · ${today}` : `<b>Closed now</b> · ${today}`;
+  }
+  /* list upcoming holiday hours (next 21 days) under the footer hours */
+  const box=document.querySelector('footer .hours');
+  if(box){ const soon=HOLIDAY_HOURS.filter(d=>{const t=new Date(d.date+'T12:00:00');const diff=(t-now)/864e5;return diff>-1&&diff<21;});
+    soon.forEach(d=>{ const row=document.createElement('div'); row.className='holiday';
+      const label=new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+      row.innerHTML=`<span>${label} · ${d.note||'Holiday'}</span><span>${d.closed?'Closed':fmt(toMin(d.open))+' – '+fmt(toMin(d.close))}</span>`;
+      box.appendChild(row); }); }
 })();
 </script>
 </body>
