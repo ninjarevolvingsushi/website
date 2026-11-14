@@ -351,6 +351,20 @@ a.f-line:hover{color:var(--cream)}
 .sticky-order a{text-align:center;padding:.95rem .5rem;font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(19,17,8,.18);color:var(--cream);border:1px solid rgba(237,229,211,.45);transition:all .25s ease}
 .sticky-order a:hover,.sticky-order a:focus-visible,.sticky-order a:active{background:rgba(237,229,211,.94);color:var(--ink);border-color:rgba(237,229,211,.96)}
 body.show-sticky-bar .sticky-order{display:grid}
+/* Pickup + Delivery: gold like Book a Table, pinned to the bottom of the screen while scrolling (Nov 13 2026) */
+.sticky-order{display:none!important}
+.hero-ctas{position:fixed;left:0;right:0;bottom:0;z-index:95;margin:0 auto;pointer-events:none}
+.hero-ctas .hbtn{pointer-events:auto}
+.hbtn.gold{background:var(--gold)!important;background-color:var(--gold)!important;color:var(--ink)!important;border-color:var(--gold)!important;font-weight:700;box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.hbtn.gold:hover,.hbtn.gold:focus-visible,.hbtn.gold:active{background:var(--cream)!important;background-color:var(--cream)!important;border-color:var(--cream)!important;color:var(--ink)!important}
+@media(min-width:1021px){body{padding-bottom:110px}}
+/* keep the hero text clear of the pinned buttons */
+.hero-title{margin-bottom:104px}
+@media(max-width:1020px){.hero-title{margin-bottom:76px}}
+@media(max-width:1020px){
+  .hero-ctas{padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom))!important;background:linear-gradient(rgba(19,17,8,0),rgba(19,17,8,.55) 35%,rgba(19,17,8,.85));}
+}
+
 /* Order section layout: left and right columns line up top and bottom */
 .order-sec .order-grid h2{line-height:1.08;margin:0}
 .order-sec .order-grid p{min-height:1.7em;max-width:none}
@@ -528,9 +542,8 @@ body.show-sticky-bar .sticky-order{display:grid}
     <div class="hero-hours" id="hero-hours">Open daily · 4629 S Cooper St, Arlington</div>
   </div>
   <div class="hero-ctas" aria-label="Quick actions">
-    <a class="hbtn solid book-trigger" href="#reserve">Book a Table</a>
-    <a class="hbtn line" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener">Pickup</a>
-    <a class="hbtn line" href="#order">Delivery</a>
+    <a class="hbtn gold" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener">Pickup</a>
+    <a class="hbtn gold" href="#order">Delivery</a>
   </div>
 </header>
 
@@ -784,11 +797,7 @@ body.show-sticky-bar .sticky-order{display:grid}
 </div>
 
 <!-- sticky mobile bar -->
-<div class="sticky-order" aria-label="Quick actions">
-  <a class="call book-trigger" href="#reserve">Book a Table</a>
-  <a class="ord" href="https://order.toasttab.com/online/ninja-sushi-and-grill-arlington-4629-south-cooper-street-125" target="_blank" rel="noopener">Pickup</a>
-  <a class="call" href="#order">Delivery</a>
-</div>
+<!-- old scroll-triggered bottom bar removed (Nov 13 2026): Pickup / Delivery now stay pinned from the hero -->
 <script>
 /* ============================================================
    ★★★ MENU DATA — THIS IS WHERE YOU EDIT YOUR MENU ★★★
